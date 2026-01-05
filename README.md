@@ -7,8 +7,6 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Outdated-red?style=for-the-badge)
 
-**⚠️ DISCLAIMER: This tool is for educational purposes only. Use at your own risk. ⚠️**
-
 </div>
 
 ## 📖 Overview
