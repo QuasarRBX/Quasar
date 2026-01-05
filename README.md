@@ -162,7 +162,7 @@ quasar/
 
 ## TODO
 
-- [ ] Create new bypass server
+- [] Create new bypass server
 - [ ] Update for current Roblox API
 - [ ] Add error handling improvements
 - [ ] Implement proxy support
