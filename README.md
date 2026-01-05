@@ -38,7 +38,6 @@ Quasar is a comprehensive Roblox utility tool designed for various account manag
 
 ### ⚡ Account Tools
 - **Account Nuker** - Multi-threaded account modification tool with features:
-  - Theme flashing (Light/Dark mode toggle)
   - Mass friend removal
   - Inventory item deletion
   - Language changing
@@ -54,7 +53,7 @@ Quasar is a comprehensive Roblox utility tool designed for various account manag
 The tool automatically installs required dependencies when first run:
 
 ```bash
-python quasar.py
+python main.py
 ```
 
 ### Manual Installation
@@ -66,7 +65,7 @@ pip install requests pystyle pyisemail tqdm termcolor rich
 
 ```
 quasar/
-├── quasar.py              # Main application
+├── main.py               # Main application
 ├── cookies.txt           # Cookie storage
 ├── validcookies.txt      # Validated cookies
 ├── invalidcookies.txt    # Invalid cookies
@@ -174,17 +173,6 @@ quasar/
 ## 👨‍💻 Developer
 
 **Made by 0x256**
-
-## 📄 License
-
-This project is for educational purposes only. Users are responsible for complying with Roblox Terms of Service and applicable laws.
+**Api library by gege_hello11**
 
 ---
-
-<div align="center">
-  
-**⚠️ USE RESPONSIBLY ⚠️**
-
-*This tool should only be used for legitimate security testing and educational purposes on accounts you own or have explicit permission to test.*
-
-</div>
