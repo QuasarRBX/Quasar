@@ -9,19 +9,19 @@
 
 </div>
 
-## 📖 Overview
+## Overview
 
 Quasar is a comprehensive Roblox utility tool designed for various account management and game-related operations. The tool features a visually appealing interface with multiple modules for different purposes.
 
 ## ✨ Features
 
-### 🔐 Account Management
+### Account Management
 - **Cookie Checker** - Validate and extract information from Roblox cookies
 - **Cookie Generator** - Generate random cookie strings for testing
 - **Mass Cookie Checker** - Validate multiple cookies from a file
 - **Pin Cracker** - *[Currently Disabled - Roblox removed PIN system]*
 
-### 💰 Economic Tools
+### Economic Tools
 - **Free Item Buyer** - Automatically purchase all free items on Roblox catalog
 - **Robux & Account Info** - Display detailed account information including:
   - Robux balance and credit
@@ -30,11 +30,11 @@ Quasar is a comprehensive Roblox utility tool designed for various account manag
   - Group funds and ownership
   - Transaction history
 
-### 🎮 Game Utilities
+### Game Utilities
 - **Server IP Grabber** - Extract server IP addresses from Roblox game sessions
 - **Group Finder** - Search for unowned, public entry groups
 
-### ⚡ Account Tools
+### Account Tools
 - **Account Nuker** - Multi-threaded account modification tool with features:
   - Mass friend removal
   - Inventory item deletion
@@ -72,7 +72,7 @@ quasar/
 └── [username]_cookie.txt # Individual cookie info dumps
 ```
 
-## 🚀 Usage
+## Usage
 
 1. Run the application:
    ```bash
@@ -146,21 +146,21 @@ quasar/
 - PIN cracker module is disabled (Roblox removed PIN system)
 - Discord fake site module is currently offline
 
-## 🔒 Security & Legal
+## Security & Legal
 
 - This tool is for educational purposes only
 - Unauthorized access to accounts is illegal
 - Respect others' privacy and property
 - Use only on accounts you own or have permission to test
 
-## 🐛 Known Issues
+## Known Issues
 
 1. **Outdated Version**: Some features may not work with current Roblox API
 2. **Rate Limiting**: Some modules may hit Roblox rate limits
 3. **Dependency Issues**: Automatic installation may fail on some systems
 4. **PIN System**: PIN-related features are obsolete
 
-## 📝 TODO
+## TODO
 
 - [ ] Create new bypass server
 - [ ] Update for current Roblox API
@@ -168,7 +168,7 @@ quasar/
 - [ ] Implement proxy support
 - [ ] Add GUI version
 
-## 👨‍💻 Developer
+## Developer
 
 **Made by 0x256**
 **Api library by gege_hello11**
