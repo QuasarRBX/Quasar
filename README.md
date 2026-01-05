@@ -171,6 +171,7 @@ quasar/
 ## Developer
 
 **Made by 0x256**
+
 *[Api library](https://github.com/QuasarRBX/RobloxAPI)*
 
 ---
