@@ -76,7 +76,7 @@ quasar/
 
 1. Run the application:
    ```bash
-   python quasar.py
+   python main.py
    ```
 
 2. Select an option from the main menu:
