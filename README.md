@@ -162,7 +162,7 @@ quasar/
 
 ## TODO
 
-- [] Create new bypass server
+- [ ] Create new bypass server
 - [ ] Update for current Roblox API
 - [ ] Add error handling improvements
 - [ ] Implement proxy support
@@ -171,6 +171,6 @@ quasar/
 ## Developer
 
 **Made by 0x256**
-**Api library by gege_hello11**
+*[Api library](https://github.com/QuasarRBX/RobloxAPI)*
 
 ---
