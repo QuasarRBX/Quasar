@@ -16,7 +16,7 @@
 
 <div align="center">
 
-<img width="1000" height="500" alt="main" src="https://github.com/user-attachments/assets/9068dc73-e27c-40c4-9f42-7c7e483a4cdd" />
+<img width="983" height="109" alt="изображение" src="https://github.com/user-attachments/assets/59901afe-fad3-450d-bb65-ec4d7a6d8224" />
 
 ## **Revolutionary Roblox Utility with Advanced Features**
 
