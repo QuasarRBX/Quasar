@@ -15,26 +15,26 @@
 </div>
 
 <div align="center">
-
-<img width="983" height="109" alt="изображение" src="https://github.com/user-attachments/assets/59901afe-fad3-450d-bb65-ec4d7a6d8224" />
-
+  
 ## **Revolutionary Roblox Utility with Advanced Features**
+  
+<img width="983" height="109" alt="изображение" src="https://github.com/user-attachments/assets/59901afe-fad3-450d-bb65-ec4d7a6d8224" />
 
 </div>
 
-## 📌 Overview
+## Overview
 
 Quasar is a powerful multifunctional tool for Roblox, providing advanced capabilities for account management, in-game economy operations, and data analysis. The updated version includes integration with external services and enhanced functionality.
 
-## 🚀 Core Features
+## Core Features
 
-### 🔐 Account Management
+### Account Management
 - **Cookie Checker** — Detailed analysis of information from Roblox cookies
 - **Mass Cookie Checker** — Validation of multiple cookies from `cookies.txt` file
 - **Immortal Integration** — Direct access to 2FA bypass service
 - **Cookie Generator** — Random cookie string generation for testing
 
-### 💰 Economic Tools
+### Economic Tools
 - **Free Item Buyer** — Automatic purchase of all free items in Roblox catalog
 - **Robux & Account Info** — Display detailed account information including:
   - Robux balance and credit
@@ -44,7 +44,7 @@ Quasar is a powerful multifunctional tool for Roblox, providing advanced capabil
   - Transaction history
   - Followers count
 
-### 🛠️ Advanced Tools
+### Advanced Tools
 - **Account Nuker** — Multi-threaded account modification tool:
   - Mass friend removal
   - Inventory item deletion
@@ -54,7 +54,7 @@ Quasar is a powerful multifunctional tool for Roblox, providing advanced capabil
 - **Group Finder** — Search for available, unowned, public-entry groups
 - **2FA Bypass** — Age restriction and security bypass via Immortal API
 
-### 🎮 Game Utilities
+### Game Utilities
 - **Quasar Injector** — Download external cheating utilities
 - **Quasar Mass Checker** — Download C# version for advanced cookie checking
 
@@ -92,7 +92,7 @@ quasar/
 └── quasar_mass_checker.exe      # External mass checker
 ```
 
-## 🎮 Usage
+## Usage
 
 1. Run the application:
    ```bash
@@ -111,7 +111,7 @@ quasar/
 
 3. Follow on-screen instructions for each module.
 
-## 🔧 Available Modules (Updated)
+## Available Modules (Updated)
 
 ### 1. Quasar Cheats (`[1]`)
 - Downloads Quasar Injector (external cheating utility)
@@ -171,7 +171,7 @@ quasar/
 - Integration with Immortal API
 - Handles rate limiting and API responses
 
-## ⚠️ Important Notes
+## Important Notes
 
 - **Enhanced Version 2.0.0** — Includes external service integrations
 - **External Downloads** — Some modules download external executables
@@ -179,21 +179,21 @@ quasar/
 - **Rate Limiting** — Roblox API has strict rate limits
 - **Security** — Use only on accounts you own or have permission to test
 
-## 🔒 Security & Legal
+## Security & Legal
 
 - **Educational Purpose Only** — This tool is for learning and research
 - **Authorized Use Only** — Only test on accounts you own
 - **Respect Privacy** — Do not access others' accounts without permission
 - **Compliance** — Follow Roblox Terms of Service and applicable laws
 
-## 🐛 Known Issues & Limitations
+## Known Issues & Limitations
 
 1. **Offline Modules** — Some original features are disabled (PIN cracker, email validator)
 2. **External Dependencies** — Requires internet for downloads and API calls
 3. **Rate Limiting** — Some operations may hit Roblox API limits
 4. **Windows Focus** — Some features optimized for Windows environment
 
-## 📝 TODO & Future Development
+## TODO & Future Development
 
 - [ ] Create new bypass methods
 - [ ] Update for current Roblox API changes
@@ -213,7 +213,7 @@ The tool automatically installs:
 - `rich` — Enhanced console formatting
 - `socket` — Network operations
 
-## 👨💻 Developer
+## Developer
 
 **Created by 0x256**
 
@@ -221,7 +221,7 @@ The tool automatically installs:
 - **GitHub**: [QuasarRBX](https://github.com/QuasarRBX)
 - **API Library**: [RobloxAPI](https://github.com/QuasarRBX/RobloxAPI)
 
-## 🔄 Auto-Update System
+## Auto-Update System
 
 The tool includes version checking:
 - Automatically checks GitHub for updates
