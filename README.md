@@ -17,8 +17,6 @@
 <div align="center">
   
 ## **Revolutionary Roblox Utility with Advanced Features**
-  
-<img width="983" height="109" alt="изображение" src="https://github.com/user-attachments/assets/59901afe-fad3-450d-bb65-ec4d7a6d8224" />
 
 </div>
 
@@ -101,15 +99,13 @@ quasar/
 
 2. Select an option from the main menu:
 
-   ```
-   [1] Cheats (Quasar)    [ONLINE];                [6] Email validator  [OFFLINE];               [11] Get server IP           [OFFLINE];                 
-   [2] Cookie checker     [ONLINE];                [7] Nucker           [ONLINE];                [12] Bypass age              [ONLINE];                 
-   [3] Immortal           [ONLINE];                [8] BruteForcer      [OFFLINE];               [13] Bypass all              [ONLINE];            
-   [4] Roblox Pin cracker [OFFLINE];               [9] free-item-buyer  [ONLINE];                [14] C# QMCC                 [ONLINE];                  
-   [5] Group finder       [ONLINE];                [10] Cookie Gen.     [OFFLINE];               [15] Group wall spammer      [OFFLINE];
-   ```
+<div align="center">
 
-3. Follow on-screen instructions for each module.
+<img width="983" height="109" alt="изображение" src="https://github.com/user-attachments/assets/59901afe-fad3-450d-bb65-ec4d7a6d8224" />
+
+</div>
+
+4. Follow on-screen instructions for each module.
 
 ## Available Modules (Updated)
 
