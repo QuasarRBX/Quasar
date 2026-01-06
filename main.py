@@ -121,7 +121,7 @@ print("LOADED MODULES!")
 year = time.localtime().tm_year
 day = time.localtime().tm_mday
 month = time.localtime().tm_mon
-version = "2.0.0"
+version = "2.1.2"
 cookies_folder = "cookies"
 ## STARTING ##
 
