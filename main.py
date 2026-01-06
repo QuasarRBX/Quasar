@@ -52,7 +52,8 @@ try:
     print("glob loaded")
     from rich.console import Console
     print("rich.console loaded")
-
+    import re
+    print("re loaded")
 except ImportError as e:
     print(f"\033[31m[ERROR] Missing package: {e}. Installing required packages...")
     
@@ -111,6 +112,8 @@ finally:
         print("glob loaded")
         from rich.console import Console
         print("rich.console loaded")
+        import re
+        print("re loaded")
     except ImportError as e:
         print(f"\033[31m[CRITICAL ERROR] Failed to import after installation: {e}")
         sys.exit(1)
@@ -121,7 +124,7 @@ print("LOADED MODULES!")
 year = time.localtime().tm_year
 day = time.localtime().tm_mday
 month = time.localtime().tm_mon
-version = "2.1.3"
+version = "2.1.4"
 cookies_folder = "cookies"
 ## STARTING ##
 
@@ -321,6 +324,38 @@ def bypass(cookie, type, password="12345678"):
     print(getBanner())
     GetNumber()
     
+def cookie_refresh(cookie):
+    try:
+        requests.post("https://auth.roblox.com/v2/logout", headers={'Cookie': f'.ROBLOSECURITY={cookie}'})
+        csrf = None
+    except requests.exceptions.RequestException as e:
+        csrf = e.response.headers.get("x-csrf-token") if e.response else None
+    
+    if not csrf:
+        return "Error: No CSRF token"
+    
+    resp = requests.post("https://auth.roblox.com/v1/authentication-ticket", 
+                       headers={'Cookie': f'.ROBLOSECURITY={cookie}',
+                                'x-csrf-token': csrf,
+                                'referer': 'https://www.roblox.com/',
+                                'Content-Type': 'application/json'})
+    
+    ticket = resp.headers.get('rbx-authentication-ticket')
+    if not ticket:
+        return "Error: No auth ticket"
+    
+    resp2 = requests.post("https://auth.roblox.com/v1/authentication-ticket/redeem",
+                         json={"authenticationTicket": ticket},
+                         headers={'RBXAuthenticationNegotiation': '1'})
+    
+    if resp2.status_code == 200:
+        set_cookie = resp2.headers.get('set-cookie', '')
+        match = re.search(r'(_\|WARNING:-DO-NOT-SHARE-THIS\.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.\|_[A-Za-z0-9=\-\._]+)', set_cookie)
+        return "Refreshed cookie: "+match.group(0) if match else None
+    
+    return "Unknown error"
+
+
 
 def BuyAll():
     cookie = Write.Input(f"Cookie to free-item-buyer: ", Colors.purple_to_blue, interval=0.0025)
@@ -805,8 +840,8 @@ def GetNumber():
     [1] Cheats (Quasar)    [ONLINE];                [6] Email validator  [OFFLINE];               [11] Bypass 18+              [ONLINE];                 
     [2] Cookie checker     [ONLINE];                [7] Nucker           [ONLINE];                [12] Bypass age              [ONLINE];                 
     [3] Immortal           [ONLINE];                [8] BruteForcer      [OFFLINE];               [13] Bypass all              [ONLINE];            
-    [4] Roblox Pin cracker [OFFLINE];               [9] free-item-buyer  [ONLINE];                [14] C# QMCC                 [ONLINE];                  
-    [5] Group finder       [ONLINE];                [10] Cookie Gen.     [OFFLINE];               [15] Group wall spammer      [OFFLINE];  """), 1)  
+    [4] Roblox Pin cracker [OFFLINE];               [9] free-item-buyer  [ONLINE];                [14] Cookie refresh          [ONLINE];                  
+    [5] Group finder       [ONLINE];                [10] Cookie Gen.     [OFFLINE];               [15] C# QMCC                 [ONLINE];  """), 1)  
     print(Printing)
     Number = int(Write.Input("Enter number: ", Colors.purple_to_blue, interval=0.0025))
     
@@ -917,7 +952,7 @@ def GetNumber():
         print(getBanner())
         GetNumber()
          
-    elif Number == 14:
+    elif Number == 15:
         Write.Print("Waiting for open file...\n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         YesNo = Write.Input("Do you want to download QuasarChecker? (y/n): ", Colors.red, interval=0.0025)
@@ -974,6 +1009,7 @@ def GetNumber():
         cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
         Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
         Write.Print(bypass(cooke, "Age"), Colors.purple_to_blue, interval=0.0025)
+        Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
             os.system("cls")
         else:
@@ -993,6 +1029,7 @@ def GetNumber():
         cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
         Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
         Write.Print(bypass(cooke, "RemoveAll"), Colors.purple_to_blue, interval=0.0025)
+        Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
             os.system("cls")
         else:
@@ -1014,6 +1051,28 @@ def GetNumber():
         parol = Write.Input(f"Cookie password: ", Colors.purple_to_blue, interval=0.0025)
         Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
         Write.Print(bypass(cooke, "18+", parol), Colors.purple_to_blue, interval=0.0025)
+        Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+    elif Number == 14:
+        Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
+         
+        time.sleep(2)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print(getBanner())
+        cooke = Write.Input(f"Cookie to refresh: ", Colors.purple_to_blue, interval=0.0025)
+        Write.Print("Refreshing (1-2 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
+        Write.Print(cookie_refresh(cooke), Colors.purple_to_blue, interval=0.0025)
+        Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
+
         if os.name == "nt":
             os.system("cls")
         else:
