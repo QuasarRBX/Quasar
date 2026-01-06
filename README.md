@@ -163,7 +163,8 @@ quasar/
 - Requires `cookies.txt` file with one cookie per line
 - Separate executable with dedicated interface
 
-### 8. 2FA Bypass (`[12]` & `[13]`)
+### 8. 2FA Bypass (`[11]`,`[12]` and `[13]`)
+- Age restriction (18+) with passport bypass (`[11]`)
 - Age restriction bypass (`[12]`)
 - Complete security bypass (`[13]`)
 - Integration with Immortal API
