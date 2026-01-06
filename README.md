@@ -97,6 +97,8 @@ quasar/
    python main.py
    ```
 
+1.2 or run executable (main_quasar.exe)
+  
 2. Select an option from the main menu:
 
 <div align="center">
