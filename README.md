@@ -214,7 +214,7 @@ The tool automatically installs:
 
 ## Developer
 
-**Created by 0x256**
+**Made with love by [0x256](https://github.com/jealleal)**
 
 - **Website**: quasar.gt.tc
 - **GitHub**: [QuasarRBX](https://github.com/QuasarRBX)
