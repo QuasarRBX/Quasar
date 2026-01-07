@@ -158,7 +158,7 @@ def check_version(version):
         latest_version = response.text.strip()
         if latest_version != version:
             Write.Print(f"New version available. Please update to version {latest_version} from the Github! \n", Colors.red, interval=0.0025)
-            os.system("pause")
+            Write.Input(f"Press any key if you want to continue \n", Colors.red, interval=0.0025)
         else:
             Write.Print(f"Newest version!\n", Colors.green, interval=0.0025)
             time.sleep(2)
@@ -279,7 +279,7 @@ def bypass(cookie, type, password="12345678"):
             
             response.raise_for_status()
             data = response.json()
-            return data["message"]
+            return data
             os.system("pause")
         except requests.exceptions.RequestException as e:
             return e
@@ -307,6 +307,29 @@ def bypass(cookie, type, password="12345678"):
             response.raise_for_status()
             data = response.json()
             return data
+            os.system("pause")
+        except requests.exceptions.RequestException as e:
+            return e
+            os.system("pause")
+
+    if type == "Refresh":
+        url = "https://www.rblxrefresh.net/refresh"
+        requests.Timeout = 999999999
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        payload = {
+            "cookie":cookie
+        }
+
+        try:
+            response = requests.post(
+                url,
+                headers=headers,
+                data=json.dumps(payload)
+            )
+
+            return response.text
             os.system("pause")
         except requests.exceptions.RequestException as e:
             return e
@@ -1067,18 +1090,47 @@ def GetNumber():
         else:
             os.system("clear")
         print(getBanner())
-        cooke = Write.Input(f"Cookie to refresh: ", Colors.purple_to_blue, interval=0.0025)
-        Write.Print("Refreshing (1-2 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
-        Write.Print(cookie_refresh(cooke), Colors.purple_to_blue, interval=0.0025)
-        Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
+        Write.Print("""
+        [1] Ticket Method
+        [2] Website Method\n""", Colors.purple_to_blue, interval=0.0025)
+        m = Write.Input(f"Select method: ", Colors.purple_to_blue, interval=0.0025)
+        if int(m) == 1:
+            cooke = Write.Input(f"Cookie to refresh: ", Colors.purple_to_blue, interval=0.0025)
+            Write.Print("Refreshing (1-2 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
+            Write.Print(cookie_refresh(cooke), Colors.purple_to_blue, interval=0.0025)
+            Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
 
-        if os.name == "nt":
-            os.system("cls")
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            print('')
+            print(getBanner())
+            GetNumber()
+        elif int(m) == 2:
+            cooke = Write.Input(f"Cookie to refresh: ", Colors.purple_to_blue, interval=0.0025)
+            Write.Print("Refreshing (1-2 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
+            Write.Print(bypass(cooke, "Refresh"), Colors.purple_to_blue, interval=0.0025)
+            Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
+
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            print('')
+            print(getBanner())
+            GetNumber()
         else:
-            os.system("clear")
-        print('')
-        print(getBanner())
-        GetNumber()
+            Write.Print("Invalid Choose \n", Colors.purple_to_blue, interval=0.0025)
+            Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
+
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            print('')
+            print(getBanner())
+            GetNumber()
     elif Number <=15:
         Write.Input("This feature is disabled or was not implemented in the code. Press any key", Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
