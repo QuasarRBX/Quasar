@@ -7,16 +7,10 @@
 
 <div align="center">
 
-![Quasar Banner](https://img.shields.io/badge/QUASAR-2.1.4-purple?style=for-the-badge)
+![Quasar Banner](https://img.shields.io/badge/QUASAR-2.2.0-purple?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Enhanced-blue?style=for-the-badge)
-
-</div>
-
-<div align="center">
-
-# development is currently suspended indefinitely
 
 </div>
 
