@@ -8,9 +8,10 @@
 #
 # If you dont know python
 #########################################################################################################################
-# TODO: nothing yay
+# TODO: Create bypass method 
 #########################################################################################################################
-
+import ctypes
+ctypes.windll.kernel32.SetConsoleTitleW("Loading core modules...")
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 print("initialized")
@@ -160,6 +161,7 @@ def check_version(version):
         response = requests.get(f'https://raw.githubusercontent.com/{github}/{repo}/refs/heads/main/version')
         latest_version = response.text.strip()
         if latest_version != version:
+            ctypes.windll.kernel32.SetConsoleTitleW("Checking for updates...")
             Write.Print(f"New version available. Please update to version {latest_version} from the Github! \n", Colors.red, interval=0.0025)
             Write.Input(f"Press any key if you want to continue \n", Colors.red, interval=0.0025)
         else:
@@ -188,6 +190,7 @@ else:
     os.system("clear")
 print('')
 print(getBanner())
+ctypes.windll.kernel32.SetConsoleTitleW("initializing...")
 
 #########################################################################################################################################
 #########################################################################################################################################
@@ -859,6 +862,7 @@ def check(cookie):
         Write.Print(f"Followers: {followers}\n", Colors.purple_to_blue, interval=0.0025)
 
 def GetNumber():
+    ctypes.windll.kernel32.SetConsoleTitleW("Welcome to Quasar!")
     Printing = Colorate.Vertical(Colors.purple_to_blue, Center.XCenter("""
     [1] Cheats (Quasar)    [ONLINE];                [6] Email validator  [OFFLINE];               [11] Bypass 18+              [ONLINE];                 
     [2] Cookie checker     [ONLINE];                [7] Nucker           [ONLINE];                [12] Bypass age              [ONLINE];                 
@@ -869,6 +873,7 @@ def GetNumber():
     Number = int(Write.Input("Enter number: ", Colors.purple_to_blue, interval=0.0025))
     
     if Number == 1:
+        ctypes.windll.kernel32.SetConsoleTitleW("Injector")
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         if os.name == "nt":
@@ -892,6 +897,7 @@ def GetNumber():
         print(getBanner())
         GetNumber()
     elif Number == 2:
+        ctypes.windll.kernel32.SetConsoleTitleW("Cookie Checker")
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
          
         time.sleep(2)
@@ -906,6 +912,7 @@ def GetNumber():
         check(cookie)
         
     elif Number == 3:
+        
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         if os.name == "nt":
@@ -929,6 +936,7 @@ def GetNumber():
         GetNumber()
 
     elif Number == 5:
+        ctypes.windll.kernel32.SetConsoleTitleW("Group finder")
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         GruupFind()
@@ -940,6 +948,7 @@ def GetNumber():
         print(getBanner())
         GetNumber()
     elif Number == 7:
+        ctypes.windll.kernel32.SetConsoleTitleW("Nucker")
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         if os.name == "nt":
@@ -958,6 +967,7 @@ def GetNumber():
         GetNumber()
          
     elif Number == 9:
+        ctypes.windll.kernel32.SetConsoleTitleW("Buy all")
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         if os.name == "nt":
@@ -1083,6 +1093,7 @@ def GetNumber():
         print(getBanner())
         GetNumber()
     elif Number == 14:
+        ctypes.windll.kernel32.SetConsoleTitleW("Refresh")
         Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
          
         time.sleep(2)
