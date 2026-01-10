@@ -15,6 +15,12 @@
 </div>
 
 <div align="center">
+
+# development is currently suspended indefinitely
+
+</div>
+
+<div align="center">
   
 ## **Revolutionary Roblox Utility with Advanced Features**
 
