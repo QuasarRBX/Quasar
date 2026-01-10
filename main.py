@@ -8,7 +8,7 @@
 #
 # If you dont know python
 #########################################################################################################################
-# TODO: Create bypass method 
+# TODO: nothing yay
 #########################################################################################################################
 
 import os
@@ -124,8 +124,11 @@ print("LOADED MODULES!")
 year = time.localtime().tm_year
 day = time.localtime().tm_mday
 month = time.localtime().tm_mon
-version = "2.1.4"
+version = "2.2.0"
 cookies_folder = "cookies"
+user_profile = os.environ['USERPROFILE'] if os.name == 'nt' else os.environ['HOME']
+github = "QuasarRBX"
+repo = "Quasar"
 ## STARTING ##
 
 def getBanner():
@@ -154,7 +157,7 @@ def getBanner():
 def check_version(version):
     Write.Print(f"Checking for updates...\n", Colors.purple, interval=0.0025)
     try:
-        response = requests.get("https://raw.githubusercontent.com/QuasarRBX/Quasar/refs/heads/main/version")
+        response = requests.get(f'https://raw.githubusercontent.com/{github}/{repo}/refs/heads/main/version')
         latest_version = response.text.strip()
         if latest_version != version:
             Write.Print(f"New version available. Please update to version {latest_version} from the Github! \n", Colors.red, interval=0.0025)
@@ -277,9 +280,9 @@ def bypass(cookie, type, password="12345678"):
                 data=json.dumps(payload)
             )
             
-            response.raise_for_status()
             data = response.json()
-            return data
+            return data["message"]
+            #return response.text # old
             os.system("pause")
         except requests.exceptions.RequestException as e:
             return e
@@ -304,9 +307,7 @@ def bypass(cookie, type, password="12345678"):
                 data=json.dumps(payload)
             )
             
-            response.raise_for_status()
-            data = response.json()
-            return data
+            return response.text
             os.system("pause")
         except requests.exceptions.RequestException as e:
             return e
@@ -876,7 +877,7 @@ def GetNumber():
             os.system("clear")
         print('')
         print(getBanner())
-        link = f"https://github.com/QuasarRBX/QuasarInjector/releases/download/2.1.4/Injector.zip"
+        link = f"https://github.com/{github}/QuasarInjector/releases/download/2.1.4/Injector.zip"
         
         current_dir = os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else __file__)
         download_file(link, os.path.join(current_dir, "Injector.zip"))
@@ -986,7 +987,7 @@ def GetNumber():
                 os.system("clear")
             print('')
             print(getBanner())
-            link = f"https://github.com/QuasarRBX/CookieChecker/releases/download/1.21/QuasarMassChecker.exe"
+            link = f"https://github.com/{github}/CookieChecker/releases/download/1.21/QuasarMassChecker.exe"
             
             current_dir = os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else __file__)
             download_file(link, os.path.join(current_dir+"\quasarmasscookiechecker", "QuasarMassChecker.exe"))
