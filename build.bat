@@ -32,7 +32,7 @@ pyinstaller --onefile --console ^
 --hidden-import=random ^
 --hidden-import=ctypes ^
 --hidden-import=ctypes.wintypes ^
---icon=C:\Users\user\Pictures\quASA\icon.ico ^
+--icon=icon.ico ^
 --name=QuasarTool ^
 main_quasar.py
 
