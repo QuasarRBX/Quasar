@@ -1,9 +1,11 @@
 
 <div align="center">    
 
-<img width="300" height="300" alt="изображение" src="icon.ico" />
+<img width="150" height="150" alt="изображение" src="icon.ico" />
 
 </div>
+
+###
 
 <div align="center">
 
