@@ -1,7 +1,7 @@
 
 <div align="center">    
 
-<img width="50" height="50" alt="изображение" src="icon.ico" />
+<img width="100" height="100" alt="изображение" src="icon.ico" />
 
 </div>
 
