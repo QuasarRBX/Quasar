@@ -22,7 +22,7 @@
 
 ###
 
-**Development of the quasar app has been suspended indefinitely until new systems are available.**
+**‼️Development of the quasar app has been suspended indefinitely until new systems are available‼️**
 
 </div>
 
