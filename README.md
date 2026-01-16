@@ -32,9 +32,9 @@ Quasar is a powerful multifunctional tool for Roblox, providing advanced capabil
 
 <div align="center">
   
-## [Usage](#usage)
-## [Installation](#installation)
-## [Developer](#developer)
+## [Usage](#usage-1)
+## [Installation](#installation-1)
+## [Developer](#developer-1)
 
 </div>
 
