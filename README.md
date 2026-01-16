@@ -1,7 +1,7 @@
 
 <div align="center">    
 
-<img width="100" height="100" alt="изображение" src="icon.ico" />
+<img width="1920" height="514" alt="изображение" src="https://github.com/user-attachments/assets/ce1bf379-4822-40eb-becf-f190f7614fce" />
 
 </div>
 
