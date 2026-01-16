@@ -100,7 +100,7 @@ quasar/
 
 <div align="center">    
 
-<img width="3840" height="2160" alt="изображение" src="https://github.com/user-attachments/assets/f2a7af6a-94f9-4502-843f-7b11c881c0b3" />
+<img width="3840" height="2160" alt="изображение" src="https://github.com/user-attachments/assets/9004d906-2f43-44d3-a6b2-7f5ea64674b2" />
 
 </div>
 
