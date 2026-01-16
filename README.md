@@ -30,7 +30,9 @@
 
 Quasar is a powerful multifunctional tool for Roblox, providing advanced capabilities for account management, in-game economy operations, and data analysis. The updated version includes integration with external services and enhanced functionality.
 
-[## Usage](#usage)
+## [Usage](#usage)
+## [Installation](#installation)
+## [Developer](#developer)
 
 ## Core Features
 
@@ -64,7 +66,7 @@ Quasar is a powerful multifunctional tool for Roblox, providing advanced capabil
 - **Quasar Injector** — Download external cheating utilities
 - **Quasar Mass Checker** — Download C# version for advanced cookie checking
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 - Python 3.x
@@ -198,7 +200,7 @@ quasar/
 - [ ] Add error recovery mechanisms
 - [ ] Enhance multi-threading performance
 
-## 🧩 Dependencies
+## Dependencies
 
 The tool automatically installs:
 - `requests` — HTTP requests handling
