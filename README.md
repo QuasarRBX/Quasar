@@ -104,8 +104,6 @@ quasar/
 
 </div>
 
-4. Follow on-screen instructions for each module.
-
 ## Available Modules (Updated)
 
 ### 1. Quasar Cheats (`[1]`)
