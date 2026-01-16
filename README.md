@@ -10,7 +10,7 @@
 
 <div align="center">
 
-<img width="2127" height="134" alt="изображение" src="https://github.com/user-attachments/assets/58b12b98-a19b-4535-8123-09be214b6c2c" />
+
 
 </div>
 
