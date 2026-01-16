@@ -8,10 +8,7 @@
 
 <div align="center">
 
-![Quasar Banner](https://img.shields.io/badge/QUASAR-2.2.0-purple?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Enhanced-blue?style=for-the-badge)
+<img width="2127" height="134" alt="изображение" src="https://github.com/user-attachments/assets/24785c7b-7495-45e0-bd7a-72dbaf55a541" />
 
 </div>
 
