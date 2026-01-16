@@ -98,18 +98,9 @@ quasar/
 
 ## Usage
 
-1. Run the application:
-   ```bash
-   python main.py
-   ```
+<div align="center">    
 
-   or run executable (main_quasar.exe)
-  
-3. Select an option from the main menu:
-
-<div align="center">
-
-<img width="983" height="109" alt="изображение" src="https://github.com/user-attachments/assets/59901afe-fad3-450d-bb65-ec4d7a6d8224" />
+<img width="3840" height="2160" alt="изображение" src="https://github.com/user-attachments/assets/f2a7af6a-94f9-4502-843f-7b11c881c0b3" />
 
 </div>
 
