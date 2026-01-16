@@ -30,6 +30,8 @@
 
 Quasar is a powerful multifunctional tool for Roblox, providing advanced capabilities for account management, in-game economy operations, and data analysis. The updated version includes integration with external services and enhanced functionality.
 
+[## Usage](#usage)
+
 ## Core Features
 
 ### Account Management
